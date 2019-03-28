@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.espe.crud.model.solicitudes;
 import com.espe.crud.model.convocatoria;
 import com.espe.crud.service.solicitudesService;
 import com.espe.crud.service.convocatoriaService;
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 
 public class solicitudesController {
@@ -31,8 +32,9 @@ public class solicitudesController {
 	        return new ResponseEntity(solicitudes, HttpStatus.OK);
 	    } 
 	    
-
+	    @CrossOrigin("*")
 	    @RequestMapping(value = "/crear", method = RequestMethod.POST)
+	    @ResponseBody
 	    public ResponseEntity<solicitudes> create(@Valid @RequestBody solicitudes solicitudes) {
 	        solicitudes solicitudesCreated = solicitudesService.create(solicitudes);
 	        return new ResponseEntity(solicitudesCreated, HttpStatus.CREATED);

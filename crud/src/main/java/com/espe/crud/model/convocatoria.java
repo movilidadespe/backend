@@ -9,7 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 @Entity
@@ -17,19 +18,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class convocatoria {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+ 
 	private Long UZMTCONVO_ID;
 	
-    @NotBlank	
+
     private String UZMTCONVO_DESCRIP;
 	
-    @NotBlank
+
     private Date UZMTCONVO_FECHA_FIN;
-	
-    @NotBlank
+
     private Date UZMTCONVO_FECHA_INICIO;
+
 	
-    @NotBlank
+
     private Long UZMTCONVO_ESTADO;
 	
 

@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 import com.espe.crud.model.convocatoria;
 import com.espe.crud.repository.convocatoriaRepository;
@@ -29,5 +28,7 @@ public class convocatoriaService {
 	 public convocatoria create(convocatoria convocatoria) {
 	        return repository.save(convocatoria);
 	    }
+
+	 
             };
 
