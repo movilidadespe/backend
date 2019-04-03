@@ -3,14 +3,10 @@ package com.espe.crud.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 @Entity
@@ -18,87 +14,102 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class convocatoria {
 	
 	@Id
- 
-	private Long UZMTCONVO_ID;
+	@Column(name = "UZMTCONVO_ID")
+	private Long id;
 	
-
-    private String UZMTCONVO_DESCRIP;
+	@Column(name = "UZMTCONVO_DESCRIP")
+    private String descrpcion;
 	
-
-    private Date UZMTCONVO_FECHA_FIN;
-
-    private Date UZMTCONVO_FECHA_INICIO;
+	@Column(name = "UZMTCONVO_FECHA_FIN")
+    private Date fecha_fin;
+	
+	@Column(name = "UZMTCONVO_FECHA_INICIO")
+    private Date fecha_inicio;
 
 	
-
-    private Long UZMTCONVO_ESTADO;
+	@Column(name = "UZMTCONVO_ESTADO")
+    private Long estado;
 	
 
 
 	public convocatoria() {
 		
 	}
+	
 
-
-
-	public Long getUZMTCONVO_ID() {
-		return UZMTCONVO_ID;
+	public Long getId() {
+		return id;
 	}
 
 
 
-	public void setUZMTCONVO_ID(Long uZMTCONVO_ID) {
-		UZMTCONVO_ID = uZMTCONVO_ID;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 
 
-	public String getUZMTCONVO_DESCRIP() {
-		return UZMTCONVO_DESCRIP;
+	public String getDescrpcion() {
+		return descrpcion;
 	}
 
 
 
-	public void setUZMTCONVO_DESCRIP(String uZMTCONVO_DESCRIP) {
-		UZMTCONVO_DESCRIP = uZMTCONVO_DESCRIP;
+	public void setDescrpcion(String descrpcion) {
+		this.descrpcion = descrpcion;
 	}
 
 
 
-	public Date getUZMTCONVO_FECHA_FIN() {
-		return UZMTCONVO_FECHA_FIN;
+	public Date getFecha_fin() {
+		return fecha_fin;
 	}
 
 
 
-	public void setUZMTCONVO_FECHA_FIN(Date uZMTCONVO_FECHA_FIN) {
-		UZMTCONVO_FECHA_FIN = uZMTCONVO_FECHA_FIN;
+	public void setFecha_fin(Date fecha_fin) {
+		this.fecha_fin = fecha_fin;
 	}
 
 
 
-	public Date getUZMTCONVO_FECHA_INICIO() {
-		return UZMTCONVO_FECHA_INICIO;
+	public Date getFecha_inicio() {
+		return fecha_inicio;
 	}
 
 
 
-	public void setUZMTCONVO_FECHA_INICIO(Date uZMTCONVO_FECHA_INICIO) {
-		UZMTCONVO_FECHA_INICIO = uZMTCONVO_FECHA_INICIO;
+	public void setFecha_inicio(Date fecha_inicio) {
+		this.fecha_inicio = fecha_inicio;
 	}
 
 
 
-	public Long getUZMTCONVO_ESTADO() {
-		return UZMTCONVO_ESTADO;
+	public Long getEstado() {
+		return estado;
 	}
 
 
 
-	public void setUZMTCONVO_ESTADO(Long uZMTCONVO_ESTADO) {
-		UZMTCONVO_ESTADO = uZMTCONVO_ESTADO;
+	public void setEstado(Long estado) {
+		this.estado = estado;
 	}
 
+
+
+	@Override
+	public String toString() {
+		return "convocatoria [id=" + id + ", descrpcion=" + descrpcion + ", fecha_fin=" + fecha_fin + ", fecha_inicio="
+				+ fecha_inicio + ", estado=" + estado + "]";
+	}
+
+
+
+
+
+
+
+	
 
 	
 	
