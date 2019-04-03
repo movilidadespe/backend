@@ -1,0 +1,115 @@
+package com.espe.crud.model;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "UZMTREQUISITO", schema="UTIC")
+public class requisitos {
+
+	@Id
+	private Long UZMTREQUISITO_ID;
+
+    private String UZMTREQUISITO_NOMBRE;
+    
+    private String UZMTREQUISITO_DETALLE;
+    
+    private Long UZMTREQUISITO_ESTADO;
+    
+    private String UZMTREQUISITO_USUARIO_CREA;
+	
+    private Date UZMTREQUISITO_FECHA_CREA;
+	
+	
+    private String UZMTREQUISITO_USUARIO_MOD;
+	
+	
+    private Date UZMTREQUISITO_FECHA_MOD;
+
+
+	public Long getUZMTREQUISITO_ID() {
+		return UZMTREQUISITO_ID;
+	}
+
+
+	public void setUZMTREQUISITO_ID(Long uZMTREQUISITO_ID) {
+		UZMTREQUISITO_ID = uZMTREQUISITO_ID;
+	}
+
+
+	public String getUZMTREQUISITO_NOMBRE() {
+		return UZMTREQUISITO_NOMBRE;
+	}
+
+
+	public void setUZMTREQUISITO_NOMBRE(String uZMTREQUISITO_NOMBRE) {
+		UZMTREQUISITO_NOMBRE = uZMTREQUISITO_NOMBRE;
+	}
+
+
+	public String getUZMTREQUISITO_DETALLE() {
+		return UZMTREQUISITO_DETALLE;
+	}
+
+
+	public void setUZMTREQUISITO_DETALLE(String uZMTREQUISITO_DETALLE) {
+		UZMTREQUISITO_DETALLE = uZMTREQUISITO_DETALLE;
+	}
+
+
+	public Long getUZMTREQUISITO_ESTADO() {
+		return UZMTREQUISITO_ESTADO;
+	}
+
+
+	public void setUZMTREQUISITO_ESTADO(Long uZMTREQUISITO_ESTADO) {
+		UZMTREQUISITO_ESTADO = uZMTREQUISITO_ESTADO;
+	}
+
+
+	public String getUZMTREQUISITO_USUARIO_CREA() {
+		return UZMTREQUISITO_USUARIO_CREA;
+	}
+
+
+	public void setUZMTREQUISITO_USUARIO_CREA(String uZMTREQUISITO_USUARIO_CREA) {
+		UZMTREQUISITO_USUARIO_CREA = uZMTREQUISITO_USUARIO_CREA;
+	}
+
+
+	public Date getUZMTREQUISITO_FECHA_CREA() {
+		return UZMTREQUISITO_FECHA_CREA;
+	}
+
+
+	public void setUZMTREQUISITO_FECHA_CREA(Date uZMTREQUISITO_FECHA_CREA) {
+		UZMTREQUISITO_FECHA_CREA = uZMTREQUISITO_FECHA_CREA;
+	}
+
+
+	public String getUZMTREQUISITO_USUARIO_MOD() {
+		return UZMTREQUISITO_USUARIO_MOD;
+	}
+
+
+	public void setUZMTREQUISITO_USUARIO_MOD(String uZMTREQUISITO_USUARIO_MOD) {
+		UZMTREQUISITO_USUARIO_MOD = uZMTREQUISITO_USUARIO_MOD;
+	}
+
+
+	public Date getUZMTREQUISITO_FECHA_MOD() {
+		return UZMTREQUISITO_FECHA_MOD;
+	}
+
+
+	public void setUZMTREQUISITO_FECHA_MOD(Date uZMTREQUISITO_FECHA_MOD) {
+		UZMTREQUISITO_FECHA_MOD = uZMTREQUISITO_FECHA_MOD;
+	}
+    
+    
+    
+    
+}
