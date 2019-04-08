@@ -14,7 +14,8 @@ public class solicitudesService {
 	
 	@Autowired
     private solicitudesRepository repository;
-	
+	//@Autowired
+	//private añosRepository arepository;
 	
 	
 	public List<solicitudes> list() {
@@ -28,4 +29,7 @@ public class solicitudesService {
 	        return repository.save(solicitudes);
 	    }
 
+//	 public Optional<Años> findbyPIDM(Long PEBEMPL_PIDM){
+	//	 return arepository.findByPIDM(PEBEMPL_PIDM);
+	 //}
 }

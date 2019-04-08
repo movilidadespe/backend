@@ -18,25 +18,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class solicitudes {
 	
 	@Id
-
     private Long UZMTIPMOV_ID;
 	
+	@JsonProperty("UZMTCONVO_ID")
 
-    @NotBlank
     private Long UZMTCONVO_ID;
 	
+	@JsonProperty("nombre")
 
-    @NotBlank	
     private String UZMTIPMOV_NOMBRE;
 	
+	@JsonProperty("usuario_crea")
 
-    @NotBlank
     private String UZMTIPMOV_USUARIO_CREA;
 	
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date UZMTIPMOV_FECHA_CREA;
 	
-
+	@JsonProperty("usuario_mod")
     private String UZMTIPMOV_USUARIO_MOD;
 	
 	

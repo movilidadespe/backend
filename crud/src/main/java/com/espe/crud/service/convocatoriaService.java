@@ -3,16 +3,12 @@ package com.espe.crud.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.espe.crud.model.convocatoria;
 import com.espe.crud.repository.convocatoriaRepository;
-
-
-
 
 @Service
 public class convocatoriaService {
@@ -33,10 +29,9 @@ public class convocatoriaService {
         return list1;
     }
 	
-	 public convocatoria create(convocatoria convocatoria) {
+	 public convocatoria create2(convocatoria convocatoria) {
 	        return repository.save(convocatoria);
 	    }
 
 	 
             };
-
