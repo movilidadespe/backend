@@ -1,0 +1,85 @@
+package com.espe.crud.model;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "UZMTREQMOVSUBM", schema="UTIC")
+public class requisitosmovsubm {
+
+	@Id
+	private Long UZMTREQMOVSUBM_ID;
+	
+	private Long UZMTREQUISITO_ID;
+	
+	private Long UZMTMOVSUBM_ID;
+	
+	private String UZMTREQMOVSUBM_USUARIO_CREA;
+	
+	private Date UZMTREQMOVSUBM_FECHA_CREA;
+	
+	private String UZMTREQMOVSUBM_USUARIO_MOD;
+	
+	private Date UZMTREQMOVSUBM_FECHA_MOD;
+
+	public Long getUZMTREQMOVSUBM_ID() {
+		return UZMTREQMOVSUBM_ID;
+	}
+
+	public void setUZMTREQMOVSUBM_ID(Long uZMTREQMOVSUBM_ID) {
+		UZMTREQMOVSUBM_ID = uZMTREQMOVSUBM_ID;
+	}
+
+	public Long getUZMTREQUISITO_ID() {
+		return UZMTREQUISITO_ID;
+	}
+
+	public void setUZMTREQUISITO_ID(Long uZMTREQUISITO_ID) {
+		UZMTREQUISITO_ID = uZMTREQUISITO_ID;
+	}
+
+	public Long getUZMTMOVSUBM_ID() {
+		return UZMTMOVSUBM_ID;
+	}
+
+	public void setUZMTMOVSUBM_ID(Long uZMTMOVSUBM_ID) {
+		UZMTMOVSUBM_ID = uZMTMOVSUBM_ID;
+	}
+
+	public String getUZMTREQMOVSUBM_USUARIO_CREA() {
+		return UZMTREQMOVSUBM_USUARIO_CREA;
+	}
+
+	public void setUZMTREQMOVSUBM_USUARIO_CREA(String uZMTREQMOVSUBM_USUARIO_CREA) {
+		UZMTREQMOVSUBM_USUARIO_CREA = uZMTREQMOVSUBM_USUARIO_CREA;
+	}
+
+	public Date getUZMTREQMOVSUBM_FECHA_CREA() {
+		return UZMTREQMOVSUBM_FECHA_CREA;
+	}
+
+	public void setUZMTREQMOVSUBM_FECHA_CREA(Date uZMTREQMOVSUBM_FECHA_CREA) {
+		UZMTREQMOVSUBM_FECHA_CREA = uZMTREQMOVSUBM_FECHA_CREA;
+	}
+
+	public String getUZMTREQMOVSUBM_USUARIO_MOD() {
+		return UZMTREQMOVSUBM_USUARIO_MOD;
+	}
+
+	public void setUZMTREQMOVSUBM_USUARIO_MOD(String uZMTREQMOVSUBM_USUARIO_MOD) {
+		UZMTREQMOVSUBM_USUARIO_MOD = uZMTREQMOVSUBM_USUARIO_MOD;
+	}
+
+	public Date getUZMTREQMOVSUBM_FECHA_MOD() {
+		return UZMTREQMOVSUBM_FECHA_MOD;
+	}
+
+	public void setUZMTREQMOVSUBM_FECHA_MOD(Date uZMTREQMOVSUBM_FECHA_MOD) {
+		UZMTREQMOVSUBM_FECHA_MOD = uZMTREQMOVSUBM_FECHA_MOD;
+	}
+	
+	
+}

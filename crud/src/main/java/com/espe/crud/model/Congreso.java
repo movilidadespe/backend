@@ -1,0 +1,139 @@
+package com.espe.crud.model;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "UZMTCONGEXP", schema="UTIC")
+public class Congreso {
+	
+	@Id
+	private String UZMTCONGEXP_ID;
+	
+	private String UZMTCONGEXP_NOM;
+	
+	private String UZMTCONGEXP_SIT_WEB;
+	
+	private String UZMTCONGEXP_NOM_CONT;
+	
+	private String UZMTCONGEXP_TELF;
+	
+	private String UZMTCONGEXP_EMAIL;
+	
+	private Date UZMTCONGEXP_FECH_INI;
+	
+	private Date UZMTCONGEXP_FECH_FIN;
+	
+	private String UZMTCONGEXP_USUARIO_CREA;
+	
+	private Date UZMTCONGEXP_FECHA_CREA;
+	
+	private String UZMTCONGEXP_USUARIO_MOD;
+	
+	private Date UZMTCONGEXP_FECHA_MOD;
+
+	public String getUZMTCONGEXP_ID() {
+		return UZMTCONGEXP_ID;
+	}
+
+	public void setUZMTCONGEXP_ID(String uZMTCONGEXP_ID) {
+		UZMTCONGEXP_ID = uZMTCONGEXP_ID;
+	}
+
+	public String getUZMTCONGEXP_NOM() {
+		return UZMTCONGEXP_NOM;
+	}
+
+	public void setUZMTCONGEXP_NOM(String uZMTCONGEXP_NOM) {
+		UZMTCONGEXP_NOM = uZMTCONGEXP_NOM;
+	}
+
+
+	public String getUZMTCONGEXP_SIT_WEB() {
+		return UZMTCONGEXP_SIT_WEB;
+	}
+
+	public void setUZMTCONGEXP_SIT_WEB(String uZMTCONGEXP_SIT_WEB) {
+		UZMTCONGEXP_SIT_WEB = uZMTCONGEXP_SIT_WEB;
+	}
+
+	public String getUZMTCONGEXP_NOM_CONT() {
+		return UZMTCONGEXP_NOM_CONT;
+	}
+
+	public void setUZMTCONGEXP_NOM_CONT(String uZMTCONGEXP_NOM_CONT) {
+		UZMTCONGEXP_NOM_CONT = uZMTCONGEXP_NOM_CONT;
+	}
+
+	public String getUZMTCONGEXP_TELF() {
+		return UZMTCONGEXP_TELF;
+	}
+
+	public void setUZMTCONGEXP_TELF(String uZMTCONGEXP_TELF) {
+		UZMTCONGEXP_TELF = uZMTCONGEXP_TELF;
+	}
+
+	public String getUZMTCONGEXP_EMAIL() {
+		return UZMTCONGEXP_EMAIL;
+	}
+
+	public void setUZMTCONGEXP_EMAIL(String uZMTCONGEXP_EMAIL) {
+		UZMTCONGEXP_EMAIL = uZMTCONGEXP_EMAIL;
+	}
+
+	public Date getUZMTCONGEXP_FECH_INI() {
+		return UZMTCONGEXP_FECH_INI;
+	}
+
+	public void setUZMTCONGEXP_FECH_INI(Date uZMTCONGEXP_FECH_INI) {
+		UZMTCONGEXP_FECH_INI = uZMTCONGEXP_FECH_INI;
+	}
+
+	public Date getUZMTCONGEXP_FECH_FIN() {
+		return UZMTCONGEXP_FECH_FIN;
+	}
+
+	public void setUZMTCONGEXP_FECH_FIN(Date uZMTCONGEXP_FECH_FIN) {
+		UZMTCONGEXP_FECH_FIN = uZMTCONGEXP_FECH_FIN;
+	}
+
+	public String getUZMTCONGEXP_USUARIO_CREA() {
+		return UZMTCONGEXP_USUARIO_CREA;
+	}
+
+	public void setUZMTCONGEXP_USUARIO_CREA(String uZMTCONGEXP_USUARIO_CREA) {
+		UZMTCONGEXP_USUARIO_CREA = uZMTCONGEXP_USUARIO_CREA;
+	}
+
+	public Date getUZMTCONGEXP_FECHA_CREA() {
+		return UZMTCONGEXP_FECHA_CREA;
+	}
+
+	public void setUZMTCONGEXP_FECHA_CREA(Date uZMTCONGEXP_FECHA_CREA) {
+		UZMTCONGEXP_FECHA_CREA = uZMTCONGEXP_FECHA_CREA;
+	}
+
+	public String getUZMTCONGEXP_USUARIO_MOD() {
+		return UZMTCONGEXP_USUARIO_MOD;
+	}
+
+	public void setUZMTCONGEXP_USUARIO_MOD(String uZMTCONGEXP_USUARIO_MOD) {
+		UZMTCONGEXP_USUARIO_MOD = uZMTCONGEXP_USUARIO_MOD;
+	}
+
+	public Date getUZMTCONGEXP_FECHA_MOD() {
+		return UZMTCONGEXP_FECHA_MOD;
+	}
+
+	public void setUZMTCONGEXP_FECHA_MOD(Date uZMTCONGEXP_FECHA_MOD) {
+		UZMTCONGEXP_FECHA_MOD = uZMTCONGEXP_FECHA_MOD;
+	}
+
+
+	
+	
+
+}

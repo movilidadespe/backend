@@ -38,4 +38,11 @@ public class requisitosController {
 	        requisitos requisitosCreated = requisitosService.create(requisitos);
 	        return new ResponseEntity(requisitosCreated, HttpStatus.CREATED);
 }
+		 @CrossOrigin("*")
+		    @RequestMapping(value = "/editrequisito", method = RequestMethod.POST)
+		    @ResponseBody
+		    public ResponseEntity<requisitos> edit(@Valid @RequestBody requisitos requisitos) {
+		    	requisitos requisitosCreated = requisitosService.edit(requisitos);
+		        return new ResponseEntity(requisitosCreated, HttpStatus.CREATED);
+		    }
 }

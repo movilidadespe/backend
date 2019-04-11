@@ -1,0 +1,117 @@
+	package com.espe.crud.model;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "UZMTFMOVILIDAD", schema="UTIC")
+public class FPublicacionesIndexadas {
+
+	@Id
+	private Long UZMTFMOVILIDAD_ID;
+	
+	private Long UZMTCONGEXP_ID;
+	
+	private String UZMTSOLICITMOV_ID;
+	
+	private String MOVBD_ID;
+	
+	private String UZMTFMOVILIDAD_NOM_ARTIC;
+	
+	private String UZMTFMOVILIDAD_NOM_REVIS;
+	
+	private String UZMTFMOVILIDAD_USUARIO_CREA;
+	
+	private Date UZMTFMOVILIDAD_FECHA_CREA;
+	
+	private String UZMTFMOVILIDAD_USUARIO_MOD;
+	
+	private Date UZMTFMOVILIDAD_FECHA_MOD;
+
+	public Long getUZMTFMOVILIDAD_ID() {
+		return UZMTFMOVILIDAD_ID;
+	}
+
+	public void setUZMTFMOVILIDAD_ID(Long uZMTFMOVILIDAD_ID) {
+		UZMTFMOVILIDAD_ID = uZMTFMOVILIDAD_ID;
+	}
+
+	public Long getUZMTCONGEXP_ID() {
+		return UZMTCONGEXP_ID;
+	}
+
+	public void setUZMTCONGEXP_ID(Long uZMTCONGEXP_ID) {
+		UZMTCONGEXP_ID = uZMTCONGEXP_ID;
+	}
+
+	public String getUZMTSOLICITMOV_ID() {
+		return UZMTSOLICITMOV_ID;
+	}
+
+	public void setUZMTSOLICITMOV_ID(String uZMTSOLICITMOV_ID) {
+		UZMTSOLICITMOV_ID = uZMTSOLICITMOV_ID;
+	}
+
+	public String getMOVBD_ID() {
+		return MOVBD_ID;
+	}
+
+	public void setMOVBD_ID(String mOVBD_ID) {
+		MOVBD_ID = mOVBD_ID;
+	}
+
+	public String getUZMTFMOVILIDAD_NOM_ARTIC() {
+		return UZMTFMOVILIDAD_NOM_ARTIC;
+	}
+
+	public void setUZMTFMOVILIDAD_NOM_ARTIC(String uZMTFMOVILIDAD_NOM_ARTIC) {
+		UZMTFMOVILIDAD_NOM_ARTIC = uZMTFMOVILIDAD_NOM_ARTIC;
+	}
+
+	public String getUZMTFMOVILIDAD_NOM_REVIS() {
+		return UZMTFMOVILIDAD_NOM_REVIS;
+	}
+
+	public void setUZMTFMOVILIDAD_NOM_REVIS(String uZMTFMOVILIDAD_NOM_REVIS) {
+		UZMTFMOVILIDAD_NOM_REVIS = uZMTFMOVILIDAD_NOM_REVIS;
+	}
+
+	public String getUZMTFMOVILIDAD_USUARIO_CREA() {
+		return UZMTFMOVILIDAD_USUARIO_CREA;
+	}
+
+	public void setUZMTFMOVILIDAD_USUARIO_CREA(String uZMTFMOVILIDAD_USUARIO_CREA) {
+		UZMTFMOVILIDAD_USUARIO_CREA = uZMTFMOVILIDAD_USUARIO_CREA;
+	}
+
+	public Date getUZMTFMOVILIDAD_FECHA_CREA() {
+		return UZMTFMOVILIDAD_FECHA_CREA;
+	}
+
+	public void setUZMTFMOVILIDAD_FECHA_CREA(Date uZMTFMOVILIDAD_FECHA_CREA) {
+		UZMTFMOVILIDAD_FECHA_CREA = uZMTFMOVILIDAD_FECHA_CREA;
+	}
+
+	public String getUZMTFMOVILIDAD_USUARIO_MOD() {
+		return UZMTFMOVILIDAD_USUARIO_MOD;
+	}
+
+	public void setUZMTFMOVILIDAD_USUARIO_MOD(String uZMTFMOVILIDAD_USUARIO_MOD) {
+		UZMTFMOVILIDAD_USUARIO_MOD = uZMTFMOVILIDAD_USUARIO_MOD;
+	}
+
+	public Date getUZMTFMOVILIDAD_FECHA_MOD() {
+		return UZMTFMOVILIDAD_FECHA_MOD;
+	}
+
+	public void setUZMTFMOVILIDAD_FECHA_MOD(Date uZMTFMOVILIDAD_FECHA_MOD) {
+		UZMTFMOVILIDAD_FECHA_MOD = uZMTFMOVILIDAD_FECHA_MOD;
+	}
+	
+	
+	
+	
+}

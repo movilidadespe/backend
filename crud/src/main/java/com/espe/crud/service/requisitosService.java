@@ -3,6 +3,8 @@ package com.espe.crud.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,10 @@ public class requisitosService {
     }
 	
 	 public requisitos create(requisitos requisitos) {
+	        return reqrepository.save(requisitos);
+	    }
+	 
+	 public requisitos edit(@Valid requisitos requisitos) {
 	        return reqrepository.save(requisitos);
 	    }
 	

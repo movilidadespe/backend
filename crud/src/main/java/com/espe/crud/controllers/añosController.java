@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.espe.crud.model.Años;
 import com.espe.crud.model.Escalafonados;
+import com.espe.crud.model.Persona;
+import com.espe.crud.model.UsuarioDocente;
 
 
 
@@ -53,5 +55,6 @@ public class añosController {
 	System.out.println(q);
 		return jdbcTemplate.query(q, new BeanPropertyRowMapper<>(Escalafonados.class));
 	}
+	
 	
 }

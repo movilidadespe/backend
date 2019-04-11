@@ -1,5 +1,7 @@
 package com.espe.crud.controllers;
 
+
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -9,6 +11,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +26,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.espe.crud.model.solicitudes;
 import com.espe.crud.service.solicitudesService;
 
-import net.minidev.json.JSONObject;
+
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 
@@ -94,6 +98,7 @@ public class solicitudesController {
 			}
 			return new ResponseEntity<>(content, HttpStatus.OK);
 		}
+	  
 	    
 		 @CrossOrigin("*")	  
 	    @RequestMapping(value = "/crear", method = RequestMethod.POST)

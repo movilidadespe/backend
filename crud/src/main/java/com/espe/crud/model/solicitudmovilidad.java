@@ -1,0 +1,105 @@
+package com.espe.crud.model;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "UZMTSOLICTMOV", schema="UTIC")
+public class solicitudmovilidad {
+
+	@Id
+	private Long UZMTSOLICTMOV_ID;
+	
+	private Long UZMTVERIREQ_ID;
+	
+	private String UZMTSOLICTMOV_ESTADO;
+	
+	private String UZMTSOLICTMOV_OBSER;
+	
+	private Date UZMTSOLICTMOV_FECH;
+	
+	private String UZMTSOLICTMOV_USUARIO_CREA;
+	
+	private Date UZMTSOLICTMOV_FECHA_CREA;
+
+	private String UZMTSOLICTMOV_USUARIO_MOD;
+	
+	private Date UZMTSOLICTMOV_FECHA_MOD;
+
+	public Long getUZMTSOLICTMOV_ID() {
+		return UZMTSOLICTMOV_ID;
+	}
+
+	public void setUZMTSOLICTMOV_ID(Long uZMTSOLICTMOV_ID) {
+		UZMTSOLICTMOV_ID = uZMTSOLICTMOV_ID;
+	}
+
+	public Long getUZMTVERIREQ_ID() {
+		return UZMTVERIREQ_ID;
+	}
+
+	public void setUZMTVERIREQ_ID(Long uZMTVERIREQ_ID) {
+		UZMTVERIREQ_ID = uZMTVERIREQ_ID;
+	}
+
+	public String getUZMTSOLICTMOV_ESTADO() {
+		return UZMTSOLICTMOV_ESTADO;
+	}
+
+	public void setUZMTSOLICTMOV_ESTADO(String uZMTSOLICTMOV_ESTADO) {
+		UZMTSOLICTMOV_ESTADO = uZMTSOLICTMOV_ESTADO;
+	}
+
+	public String getUZMTSOLICTMOV_OBSER() {
+		return UZMTSOLICTMOV_OBSER;
+	}
+
+	public void setUZMTSOLICTMOV_OBSER(String uZMTSOLICTMOV_OBSER) {
+		UZMTSOLICTMOV_OBSER = uZMTSOLICTMOV_OBSER;
+	}
+
+	public Date getUZMTSOLICTMOV_FECH() {
+		return UZMTSOLICTMOV_FECH;
+	}
+
+	public void setUZMTSOLICTMOV_FECH(Date uZMTSOLICTMOV_FECH) {
+		UZMTSOLICTMOV_FECH = uZMTSOLICTMOV_FECH;
+	}
+
+	public String getUZMTSOLICTMOV_USUARIO_CREA() {
+		return UZMTSOLICTMOV_USUARIO_CREA;
+	}
+
+	public void setUZMTSOLICTMOV_USUARIO_CREA(String uZMTSOLICTMOV_USUARIO_CREA) {
+		UZMTSOLICTMOV_USUARIO_CREA = uZMTSOLICTMOV_USUARIO_CREA;
+	}
+
+	public Date getUZMTSOLICTMOV_FECHA_CREA() {
+		return UZMTSOLICTMOV_FECHA_CREA;
+	}
+
+	public void setUZMTSOLICTMOV_FECHA_CREA(Date uZMTSOLICTMOV_FECHA_CREA) {
+		UZMTSOLICTMOV_FECHA_CREA = uZMTSOLICTMOV_FECHA_CREA;
+	}
+
+	public String getUZMTSOLICTMOV_USUARIO_MOD() {
+		return UZMTSOLICTMOV_USUARIO_MOD;
+	}
+
+	public void setUZMTSOLICTMOV_USUARIO_MOD(String uZMTSOLICTMOV_USUARIO_MOD) {
+		UZMTSOLICTMOV_USUARIO_MOD = uZMTSOLICTMOV_USUARIO_MOD;
+	}
+
+	public Date getUZMTSOLICTMOV_FECHA_MOD() {
+		return UZMTSOLICTMOV_FECHA_MOD;
+	}
+
+	public void setUZMTSOLICTMOV_FECHA_MOD(Date uZMTSOLICTMOV_FECHA_MOD) {
+		UZMTSOLICTMOV_FECHA_MOD = uZMTSOLICTMOV_FECHA_MOD;
+	}
+
+	
+}

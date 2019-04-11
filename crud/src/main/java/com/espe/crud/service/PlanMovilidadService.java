@@ -22,4 +22,8 @@ public class PlanMovilidadService {
         planmovilidad.forEach(list1::add);
         return list1;
     }
+	 
+	public PlanMovilidad create(PlanMovilidad planmovilidad) {
+	        return repository.save(planmovilidad);
+	    }
 }
