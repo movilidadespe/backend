@@ -70,6 +70,32 @@ public class gestinv {
 		
 	}
 
+	
+
+	public gestinv(Long id, Long id_solictmov, String obj, String convenio, String p_cooper, String a_colab,
+			String nom_inst, String sit_web_isnt, String nom_c_inst, String telf_c_inst, String email_c_inst,
+			Date fech_ini, Date fech_fin, String usuario_crea, Date fecha_crea, String usuario_mod, Date fecha_mod) {
+		super();
+		this.id = id;
+		this.id_solictmov = id_solictmov;
+		this.obj = obj;
+		this.convenio = convenio;
+		this.p_cooper = p_cooper;
+		this.a_colab = a_colab;
+		this.nom_inst = nom_inst;
+		this.sit_web_isnt = sit_web_isnt;
+		this.nom_c_inst = nom_c_inst;
+		this.telf_c_inst = telf_c_inst;
+		this.email_c_inst = email_c_inst;
+		this.fech_ini = fech_ini;
+		this.fech_fin = fech_fin;
+		this.usuario_crea = usuario_crea;
+		this.fecha_crea = fecha_crea;
+		this.usuario_mod = usuario_mod;
+		this.fecha_mod = fecha_mod;
+	}
+
+
 
 	public Long getId() {
 		return id;

@@ -16,7 +16,7 @@ public class convocatoria {
 	private Long id;
 	
 	@Column(name = "UZMTCONVO_DESCRIP")
-    private String descrpcion;
+    private String descripcion;
 	
 	@Column(name = "UZMTCONVO_FECHA_FIN")
     private Date fecha_fin;
@@ -26,14 +26,26 @@ public class convocatoria {
 
 	
 	@Column(name = "UZMTCONVO_ESTADO")
-    private Long estado;
+    private Boolean estado;
 	
 
 
 	public convocatoria() {
 		
 	}
-	
+
+
+
+	public convocatoria(Long id, String descripcion, Date fecha_fin, Date fecha_inicio, Boolean estado) {
+		super();
+		this.id = id;
+		this.descripcion = descripcion;
+		this.fecha_fin = fecha_fin;
+		this.fecha_inicio = fecha_inicio;
+		this.estado = estado;
+	}
+
+
 
 	public Long getId() {
 		return id;
@@ -47,14 +59,14 @@ public class convocatoria {
 
 
 
-	public String getDescrpcion() {
-		return descrpcion;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
 
 
-	public void setDescrpcion(String descrpcion) {
-		this.descrpcion = descrpcion;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 
@@ -83,13 +95,13 @@ public class convocatoria {
 
 
 
-	public Long getEstado() {
+	public Boolean getEstado() {
 		return estado;
 	}
 
 
 
-	public void setEstado(Long estado) {
+	public void setEstado(Boolean estado) {
 		this.estado = estado;
 	}
 
@@ -97,25 +109,8 @@ public class convocatoria {
 
 	@Override
 	public String toString() {
-		return "convocatoria [id=" + id + ", descrpcion=" + descrpcion + ", fecha_fin=" + fecha_fin + ", fecha_inicio="
-				+ fecha_inicio + ", estado=" + estado + "]";
+		return "convocatoria [id=" + id + ", descripcion=" + descripcion + ", fecha_fin=" + fecha_fin
+				+ ", fecha_inicio=" + fecha_inicio + ", estado=" + estado + "]";
 	}
-
-
-
-
-
-
-
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

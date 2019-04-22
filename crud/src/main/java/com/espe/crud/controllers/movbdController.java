@@ -1,9 +1,8 @@
 package com.espe.crud.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,21 +12,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.espe.crud.model.convenio;
 import com.espe.crud.model.movbd;
 import com.espe.crud.repository.movbdRepository;
-import com.espe.crud.service.movbdService;
-
-
-
-
-
 @CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 @RestController
 
@@ -36,44 +27,63 @@ public class movbdController {
 
 	    public static final Logger logger = LoggerFactory.getLogger(movbdController.class);
 
-
-	    @Autowired
-		  private movbdService movbdService;
-	    
 	    @Autowired
 	    movbdRepository repository;
+	    
+	    //**MUÃ‰STRA TODAS LOS MOVBD EXISTENTES EN LA BASE DE DADTOS**
+	    
+	    @GetMapping("/movbds")
+	    public List<movbd> getAllMovbd() {
+	      System.out.println("Get all Movbds ...");
+	   
+	      List<movbd> movbd = new ArrayList<>();
+	      repository.findAll().forEach(movbd::add);
+	   
+	      return movbd;
+	    }
+	    
+	    //**MUÃ‰STRA UN MOVBD ESPECÃ�FICA 
+	    
+	    @GetMapping(value = "movbd/{id}")
+	    public List<movbd> findById(@PathVariable int id) {
+	   
+	      List<movbd> movbd = repository.findById(id);
+	      return movbd;
+	    }
+
+	    //**CREA UNA NUEVO CONVENIO**
+	    
+	    @PostMapping(value = "/movbd/create")
+	    public movbd postGestinv(@RequestBody movbd movbd) {
+	    	movbd _movbd = repository.save(new movbd(movbd.getId(), movbd.getId_convo(), movbd.getNombre(), 
+	    	movbd.getNom_f_impac(), movbd.getUsuario_crea(), movbd.getFecha_crea(), movbd.getUsuario_mod(), 
+	    	movbd.getFecha_mod()));
+	      return _movbd;
+	    }
+	    
+	    //**EDITA UN CONVENIO DE ACUERDO A SU ID**
+	    
+	    @PutMapping("/movbd/update/{id}")
+	    public ResponseEntity<movbd> updateMovbd(@PathVariable("id") 
+	    Long id, @RequestBody movbd movbd) {
+	      System.out.println("Update gestinv with ID = " + id + "...");
+	      Optional<movbd> movbdData = repository.findById(id);
+	   
+	      if (movbdData.isPresent()) {
+	    	  movbd _movbd = movbdData.get();
+	        _movbd.setId_convo(movbd.getId_convo());
+	        _movbd.setNombre(movbd.getNombre());
+	        _movbd.setNom_f_impac(movbd.getNom_f_impac());
+	        _movbd.setUsuario_crea(movbd.getUsuario_crea());
+	        _movbd.setFecha_crea(movbd.getFecha_crea());
+	        _movbd.setUsuario_mod(movbd.getUsuario_mod());
+	        _movbd.setFecha_mod(movbd.getFecha_mod());
+
 	      
-	  
-	    
-	    @RequestMapping(value = "/movbd", method = RequestMethod.GET)
-	    public ResponseEntity<movbd> list1() {
-	        List<movbd> movbd = movbdService.list1();
-	        return new ResponseEntity(movbd, HttpStatus.OK);
-	    }  
-	     
-
-	    @GetMapping("/movbd/{id}")
-	    public ResponseEntity<movbd> userById(@PathVariable long id) {
-	        Optional<movbd> client = movbdService.get(id);
-	        return new ResponseEntity(client, HttpStatus.OK);
+	        return new ResponseEntity<>(repository.save(_movbd), HttpStatus.OK);
+	      } else {
+	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	      }
 	    }
-	    
-
-	    @CrossOrigin("*")
-	    @RequestMapping(value = "/crearMovbd", method = RequestMethod.POST)
-	    @ResponseBody
-	    public ResponseEntity<movbd> create(@Valid @RequestBody movbd movbds) {
-	    	movbd movbdsCreated = movbdService.create(movbds);
-	        return new ResponseEntity(movbdsCreated, HttpStatus.CREATED);
-	    }
-	    
-	    @CrossOrigin("*")
-	    @RequestMapping(value = "/editMovbd", method = RequestMethod.POST)
-	    @ResponseBody
-	    public ResponseEntity<movbd> edit(@Valid @RequestBody movbd movbds) {
-	    	movbd conveniosCreated = movbdService.edit(movbds);
-	        return new ResponseEntity(conveniosCreated, HttpStatus.CREATED);
-	    }
-
 
 }

@@ -21,10 +21,10 @@ public class externo {
 	private Long id_convenio;
 	
 	@Column(name = "UZMTDOCENTEXTER_ID")
-    private Date docentexter;
+    private Long docentexter;
 	
 	@Column(name = "UZMTSOLICTMOV_ID")
-    private Date solicitmov;
+    private Long solicitmov;
 	
 	@Column(name = "UZMTEXTERNO_GRUP_INV")
     private String grup_inv;
@@ -75,6 +75,31 @@ public class externo {
 		
 	}
 
+	public externo(Long id, Long id_convenio, Long docentexter, Long solicitmov, String grup_inv, String linea_inv,
+			String benef, Date fech_inic, Date fech_fin, String obj, String metodo, String meta, String entreg,
+			Long code, Long pdm, String usuario_crea, Date fecha_crea, String usuario_mod, Date fecha_mod) {
+		super();
+		this.id = id;
+		this.id_convenio = id_convenio;
+		this.docentexter = docentexter;
+		this.solicitmov = solicitmov;
+		this.grup_inv = grup_inv;
+		this.linea_inv = linea_inv;
+		this.benef = benef;
+		this.fech_inic = fech_inic;
+		this.fech_fin = fech_fin;
+		this.obj = obj;
+		this.metodo = metodo;
+		this.meta = meta;
+		this.entreg = entreg;
+		this.code = code;
+		this.pdm = pdm;
+		this.usuario_crea = usuario_crea;
+		this.fecha_crea = fecha_crea;
+		this.usuario_mod = usuario_mod;
+		this.fecha_mod = fecha_mod;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -91,19 +116,19 @@ public class externo {
 		this.id_convenio = id_convenio;
 	}
 
-	public Date getDocentexter() {
+	public Long getDocentexter() {
 		return docentexter;
 	}
 
-	public void setDocentexter(Date docentexter) {
+	public void setDocentexter(Long docentexter) {
 		this.docentexter = docentexter;
 	}
 
-	public Date getSolicitmov() {
+	public Long getSolicitmov() {
 		return solicitmov;
 	}
 
-	public void setSolicitmov(Date solicitmov) {
+	public void setSolicitmov(Long solicitmov) {
 		this.solicitmov = solicitmov;
 	}
 
@@ -237,9 +262,5 @@ public class externo {
 				+ fecha_mod + "]";
 	}
 
-
-
-
-	
 }
 

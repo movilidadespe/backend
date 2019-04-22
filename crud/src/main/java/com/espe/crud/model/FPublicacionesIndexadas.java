@@ -2,6 +2,7 @@
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,107 +12,142 @@ import javax.persistence.Table;
 public class FPublicacionesIndexadas {
 
 	@Id
-	private Long UZMTFMOVILIDAD_ID;
+	@Column(name = "UZMTFMOVILIDAD_ID")
+	private Long id_fmovilidad;
 	
-	private Long UZMTCONGEXP_ID;
+	@Column(name = "UZMTCONGEXP_ID")
+	private Long id_congresxp;
 	
-	private String UZMTSOLICITMOV_ID;
+	@Column(name = "UZMTSOLICITMOV_ID")
+	private String id_solicitmov;
 	
-	private String MOVBD_ID;
+	@Column(name = "MOVBD_ID")
+	private String id_movbd;
 	
-	private String UZMTFMOVILIDAD_NOM_ARTIC;
+	@Column(name = "UZMTFMOVILIDAD_NOM_ARTIC")
+	private String nom_artic;
 	
-	private String UZMTFMOVILIDAD_NOM_REVIS;
+	@Column(name = "UZMTFMOVILIDAD_NOM_REVIS")
+	private String nom_revis;
 	
-	private String UZMTFMOVILIDAD_USUARIO_CREA;
+	@Column(name = "UZMTFMOVILIDAD_USUARIO_CREA")
+	private String usuario_crea;
 	
-	private Date UZMTFMOVILIDAD_FECHA_CREA;
+	@Column(name = "UZMTFMOVILIDAD_FECHA_CREA")
+	private Date fecha_crea;
 	
-	private String UZMTFMOVILIDAD_USUARIO_MOD;
+	@Column(name = "UZMTFMOVILIDAD_USUARIO_MOD")
+	private String usuario_mod;
 	
-	private Date UZMTFMOVILIDAD_FECHA_MOD;
+	@Column(name = "UZMTFMOVILIDAD_FECHA_MOD")
+	private Date fecha_mod;
 
-	public Long getUZMTFMOVILIDAD_ID() {
-		return UZMTFMOVILIDAD_ID;
+	public FPublicacionesIndexadas() {
+
 	}
 
-	public void setUZMTFMOVILIDAD_ID(Long uZMTFMOVILIDAD_ID) {
-		UZMTFMOVILIDAD_ID = uZMTFMOVILIDAD_ID;
+	public FPublicacionesIndexadas(Long id_fmovilidad, Long id_congresxp, String id_solicitmov, String id_movbd,
+			String nom_artic, String nom_revis, String usuario_crea, Date fecha_crea, String usuario_mod,
+			Date fecha_mod) {
+		super();
+		this.id_fmovilidad = id_fmovilidad;
+		this.id_congresxp = id_congresxp;
+		this.id_solicitmov = id_solicitmov;
+		this.id_movbd = id_movbd;
+		this.nom_artic = nom_artic;
+		this.nom_revis = nom_revis;
+		this.usuario_crea = usuario_crea;
+		this.fecha_crea = fecha_crea;
+		this.usuario_mod = usuario_mod;
+		this.fecha_mod = fecha_mod;
 	}
 
-	public Long getUZMTCONGEXP_ID() {
-		return UZMTCONGEXP_ID;
+	public Long getId_fmovilidad() {
+		return id_fmovilidad;
 	}
 
-	public void setUZMTCONGEXP_ID(Long uZMTCONGEXP_ID) {
-		UZMTCONGEXP_ID = uZMTCONGEXP_ID;
+	public void setId_fmovilidad(Long id_fmovilidad) {
+		this.id_fmovilidad = id_fmovilidad;
 	}
 
-	public String getUZMTSOLICITMOV_ID() {
-		return UZMTSOLICITMOV_ID;
+	public Long getId_congresxp() {
+		return id_congresxp;
 	}
 
-	public void setUZMTSOLICITMOV_ID(String uZMTSOLICITMOV_ID) {
-		UZMTSOLICITMOV_ID = uZMTSOLICITMOV_ID;
+	public void setId_congresxp(Long id_congresxp) {
+		this.id_congresxp = id_congresxp;
 	}
 
-	public String getMOVBD_ID() {
-		return MOVBD_ID;
+	public String getId_solicitmov() {
+		return id_solicitmov;
 	}
 
-	public void setMOVBD_ID(String mOVBD_ID) {
-		MOVBD_ID = mOVBD_ID;
+	public void setId_solicitmov(String id_solicitmov) {
+		this.id_solicitmov = id_solicitmov;
 	}
 
-	public String getUZMTFMOVILIDAD_NOM_ARTIC() {
-		return UZMTFMOVILIDAD_NOM_ARTIC;
+	public String getId_movbd() {
+		return id_movbd;
 	}
 
-	public void setUZMTFMOVILIDAD_NOM_ARTIC(String uZMTFMOVILIDAD_NOM_ARTIC) {
-		UZMTFMOVILIDAD_NOM_ARTIC = uZMTFMOVILIDAD_NOM_ARTIC;
+	public void setId_movbd(String id_movbd) {
+		this.id_movbd = id_movbd;
 	}
 
-	public String getUZMTFMOVILIDAD_NOM_REVIS() {
-		return UZMTFMOVILIDAD_NOM_REVIS;
+	public String getNom_artic() {
+		return nom_artic;
 	}
 
-	public void setUZMTFMOVILIDAD_NOM_REVIS(String uZMTFMOVILIDAD_NOM_REVIS) {
-		UZMTFMOVILIDAD_NOM_REVIS = uZMTFMOVILIDAD_NOM_REVIS;
+	public void setNom_artic(String nom_artic) {
+		this.nom_artic = nom_artic;
 	}
 
-	public String getUZMTFMOVILIDAD_USUARIO_CREA() {
-		return UZMTFMOVILIDAD_USUARIO_CREA;
+	public String getNom_revis() {
+		return nom_revis;
 	}
 
-	public void setUZMTFMOVILIDAD_USUARIO_CREA(String uZMTFMOVILIDAD_USUARIO_CREA) {
-		UZMTFMOVILIDAD_USUARIO_CREA = uZMTFMOVILIDAD_USUARIO_CREA;
+	public void setNom_revis(String nom_revis) {
+		this.nom_revis = nom_revis;
 	}
 
-	public Date getUZMTFMOVILIDAD_FECHA_CREA() {
-		return UZMTFMOVILIDAD_FECHA_CREA;
+	public String getUsuario_crea() {
+		return usuario_crea;
 	}
 
-	public void setUZMTFMOVILIDAD_FECHA_CREA(Date uZMTFMOVILIDAD_FECHA_CREA) {
-		UZMTFMOVILIDAD_FECHA_CREA = uZMTFMOVILIDAD_FECHA_CREA;
+	public void setUsuario_crea(String usuario_crea) {
+		this.usuario_crea = usuario_crea;
 	}
 
-	public String getUZMTFMOVILIDAD_USUARIO_MOD() {
-		return UZMTFMOVILIDAD_USUARIO_MOD;
+	public Date getFecha_crea() {
+		return fecha_crea;
 	}
 
-	public void setUZMTFMOVILIDAD_USUARIO_MOD(String uZMTFMOVILIDAD_USUARIO_MOD) {
-		UZMTFMOVILIDAD_USUARIO_MOD = uZMTFMOVILIDAD_USUARIO_MOD;
+	public void setFecha_crea(Date fecha_crea) {
+		this.fecha_crea = fecha_crea;
 	}
 
-	public Date getUZMTFMOVILIDAD_FECHA_MOD() {
-		return UZMTFMOVILIDAD_FECHA_MOD;
+	public String getUsuario_mod() {
+		return usuario_mod;
 	}
 
-	public void setUZMTFMOVILIDAD_FECHA_MOD(Date uZMTFMOVILIDAD_FECHA_MOD) {
-		UZMTFMOVILIDAD_FECHA_MOD = uZMTFMOVILIDAD_FECHA_MOD;
+	public void setUsuario_mod(String usuario_mod) {
+		this.usuario_mod = usuario_mod;
 	}
-	
-	
-	
+
+	public Date getFecha_mod() {
+		return fecha_mod;
+	}
+
+	public void setFecha_mod(Date fecha_mod) {
+		this.fecha_mod = fecha_mod;
+	}
+
+	@Override
+	public String toString() {
+		return "FPublicacionesIndexadas [id_fmovilidad=" + id_fmovilidad + ", id_congresxp=" + id_congresxp
+				+ ", id_solicitmov=" + id_solicitmov + ", id_movbd=" + id_movbd + ", nom_artic=" + nom_artic
+				+ ", nom_revis=" + nom_revis + ", usuario_crea=" + usuario_crea + ", fecha_crea=" + fecha_crea
+				+ ", usuario_mod=" + usuario_mod + ", fecha_mod=" + fecha_mod + "]";
+	}	
 	
 }

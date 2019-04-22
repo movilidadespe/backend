@@ -27,7 +27,7 @@ public class requisitosplanmov {
     private String usuario_mod;
 	
 	@Column(name = "UZMTREQPLANM_FECHA_MOD")
-    private Long fecha_mod;
+    private Date fecha_mod;
 	
 	@Column(name = "UZMTREQUISITO_ID")
     private Long requisito;
@@ -40,6 +40,23 @@ public class requisitosplanmov {
 	public requisitosplanmov() {
 		
 	}
+
+	
+	public requisitosplanmov(Long id,String usuario_crea,Date fecha_crea, String usuario_mod,Date fecha_mod,
+			Long requisito, Long id_plan_id) {
+		
+		super();
+		this.id = id;
+		this.usuario_crea = usuario_crea;
+		this.fecha_crea = fecha_crea;
+    	this.usuario_mod = usuario_mod;
+    	this.fecha_mod = fecha_mod;
+    	this.requisito = requisito;
+    	this.id_plan_id = id_plan_id;
+    	
+		
+	}
+
 
 
 
@@ -91,13 +108,13 @@ public class requisitosplanmov {
 
 
 
-	public Long getFecha_mod() {
+	public Date getFecha_mod() {
 		return fecha_mod;
 	}
 
 
 
-	public void setFecha_mod(Long fecha_mod) {
+	public void setFecha_mod(Date fecha_mod) {
 		this.fecha_mod = fecha_mod;
 	}
 

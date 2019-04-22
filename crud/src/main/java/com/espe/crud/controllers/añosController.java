@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.espe.crud.model.Años;
 import com.espe.crud.model.Escalafonados;
-import com.espe.crud.model.Persona;
-import com.espe.crud.model.UsuarioDocente;
+import com.espe.crud.model.tipomovilidad;
 
 
 
@@ -55,6 +54,15 @@ public class añosController {
 	System.out.println(q);
 		return jdbcTemplate.query(q, new BeanPropertyRowMapper<>(Escalafonados.class));
 	}
+	
+	@GetMapping("/plan")
+	public List<tipomovilidad> plan() throws SQLException{
+		String q = "SELECT DISTINCT(UZMTIPMOV_NOMBRE) AS movilidad FROM UTIC.UZMTCONVO,UTIC.UZMTTIPMOV WHERE UZMTTIPMOV.UZMTCONVO_ID= UZMTCONVO.UZMTCONVO_ID and UZMTCONVO_ESTADO='1' ORDER BY UZMTIPMOV_NOMBRE\r\n" + 
+				"";
+	System.out.println(q);
+		return jdbcTemplate.query(q, new BeanPropertyRowMapper<>(tipomovilidad.class));
+	}
+	
 	
 	
 }

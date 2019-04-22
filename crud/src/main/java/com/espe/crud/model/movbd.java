@@ -44,6 +44,22 @@ public class movbd {
 		
 	}
 
+	
+
+	public movbd(Long id, Long id_convo, String nombre, String nom_f_impac, String usuario_crea, Date fecha_crea,
+			String usuario_mod, Date fecha_mod) {
+		super();
+		this.id = id;
+		this.id_convo = id_convo;
+		this.nombre = nombre;
+		this.nom_f_impac = nom_f_impac;
+		this.usuario_crea = usuario_crea;
+		this.fecha_crea = fecha_crea;
+		this.usuario_mod = usuario_mod;
+		this.fecha_mod = fecha_mod;
+	}
+
+
 
 	public Long getId() {
 		return id;

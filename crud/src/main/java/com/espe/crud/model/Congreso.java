@@ -2,6 +2,7 @@ package com.espe.crud.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -9,131 +10,169 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "UZMTCONGEXP", schema="UTIC")
 public class Congreso {
+
 	
 	@Id
-	private String UZMTCONGEXP_ID;
+	@Column(name = "UZMTCONGEXP_ID")
+	private Long id;
 	
-	private String UZMTCONGEXP_NOM;
+	@Column(name = "UZMTCONGEXP_NOM")
+	private String nombre;
 	
-	private String UZMTCONGEXP_SIT_WEB;
+	@Column(name = "UZMTCONGEXP_SIT_WEB")
+	private String sitio_web;
 	
-	private String UZMTCONGEXP_NOM_CONT;
+	@Column(name = "UZMTCONGEXP_NOM_CONT")
+	private String nom_cont;
 	
-	private String UZMTCONGEXP_TELF;
-	
-	private String UZMTCONGEXP_EMAIL;
-	
-	private Date UZMTCONGEXP_FECH_INI;
-	
-	private Date UZMTCONGEXP_FECH_FIN;
-	
-	private String UZMTCONGEXP_USUARIO_CREA;
-	
-	private Date UZMTCONGEXP_FECHA_CREA;
-	
-	private String UZMTCONGEXP_USUARIO_MOD;
-	
-	private Date UZMTCONGEXP_FECHA_MOD;
-
-	public String getUZMTCONGEXP_ID() {
-		return UZMTCONGEXP_ID;
-	}
-
-	public void setUZMTCONGEXP_ID(String uZMTCONGEXP_ID) {
-		UZMTCONGEXP_ID = uZMTCONGEXP_ID;
-	}
-
-	public String getUZMTCONGEXP_NOM() {
-		return UZMTCONGEXP_NOM;
-	}
-
-	public void setUZMTCONGEXP_NOM(String uZMTCONGEXP_NOM) {
-		UZMTCONGEXP_NOM = uZMTCONGEXP_NOM;
-	}
-
-
-	public String getUZMTCONGEXP_SIT_WEB() {
-		return UZMTCONGEXP_SIT_WEB;
-	}
-
-	public void setUZMTCONGEXP_SIT_WEB(String uZMTCONGEXP_SIT_WEB) {
-		UZMTCONGEXP_SIT_WEB = uZMTCONGEXP_SIT_WEB;
-	}
-
-	public String getUZMTCONGEXP_NOM_CONT() {
-		return UZMTCONGEXP_NOM_CONT;
-	}
-
-	public void setUZMTCONGEXP_NOM_CONT(String uZMTCONGEXP_NOM_CONT) {
-		UZMTCONGEXP_NOM_CONT = uZMTCONGEXP_NOM_CONT;
-	}
-
-	public String getUZMTCONGEXP_TELF() {
-		return UZMTCONGEXP_TELF;
-	}
-
-	public void setUZMTCONGEXP_TELF(String uZMTCONGEXP_TELF) {
-		UZMTCONGEXP_TELF = uZMTCONGEXP_TELF;
-	}
-
-	public String getUZMTCONGEXP_EMAIL() {
-		return UZMTCONGEXP_EMAIL;
-	}
-
-	public void setUZMTCONGEXP_EMAIL(String uZMTCONGEXP_EMAIL) {
-		UZMTCONGEXP_EMAIL = uZMTCONGEXP_EMAIL;
-	}
-
-	public Date getUZMTCONGEXP_FECH_INI() {
-		return UZMTCONGEXP_FECH_INI;
-	}
-
-	public void setUZMTCONGEXP_FECH_INI(Date uZMTCONGEXP_FECH_INI) {
-		UZMTCONGEXP_FECH_INI = uZMTCONGEXP_FECH_INI;
-	}
-
-	public Date getUZMTCONGEXP_FECH_FIN() {
-		return UZMTCONGEXP_FECH_FIN;
-	}
-
-	public void setUZMTCONGEXP_FECH_FIN(Date uZMTCONGEXP_FECH_FIN) {
-		UZMTCONGEXP_FECH_FIN = uZMTCONGEXP_FECH_FIN;
-	}
-
-	public String getUZMTCONGEXP_USUARIO_CREA() {
-		return UZMTCONGEXP_USUARIO_CREA;
-	}
-
-	public void setUZMTCONGEXP_USUARIO_CREA(String uZMTCONGEXP_USUARIO_CREA) {
-		UZMTCONGEXP_USUARIO_CREA = uZMTCONGEXP_USUARIO_CREA;
-	}
-
-	public Date getUZMTCONGEXP_FECHA_CREA() {
-		return UZMTCONGEXP_FECHA_CREA;
-	}
-
-	public void setUZMTCONGEXP_FECHA_CREA(Date uZMTCONGEXP_FECHA_CREA) {
-		UZMTCONGEXP_FECHA_CREA = uZMTCONGEXP_FECHA_CREA;
-	}
-
-	public String getUZMTCONGEXP_USUARIO_MOD() {
-		return UZMTCONGEXP_USUARIO_MOD;
-	}
-
-	public void setUZMTCONGEXP_USUARIO_MOD(String uZMTCONGEXP_USUARIO_MOD) {
-		UZMTCONGEXP_USUARIO_MOD = uZMTCONGEXP_USUARIO_MOD;
-	}
-
-	public Date getUZMTCONGEXP_FECHA_MOD() {
-		return UZMTCONGEXP_FECHA_MOD;
-	}
-
-	public void setUZMTCONGEXP_FECHA_MOD(Date uZMTCONGEXP_FECHA_MOD) {
-		UZMTCONGEXP_FECHA_MOD = uZMTCONGEXP_FECHA_MOD;
-	}
-
-
+	@Column(name = "UZMTCONGEXP_TELF")
+	private String telf;
 	
 	
+	@Column(name = "UZMTCONGEXP_EMAIL")
+	private String email;
+	
+	@Column(name = "UZMTCONGEXP_FECH_INI")
+	private Date fech_ini;
+	
+	@Column(name = "UZMTCONGEXP_FECH_FIN")
+	private Date fech_fin;
+	
+	@Column(name = "UZMTCONGEXP_USUARIO_CREA")
+	private String usuario_crea;
+	
+	@Column(name = "UZMTCONGEXP_FECHA_CREA")
+	private Date fech_crea;
+	
+	@Column(name = "UZMTCONGEXP_USUARIO_MOD")
+	private String usuario_mod;
+	
+	@Column(name = "UZMTCONGEXP_FECHA_MOD")
+	private Date fech_mod;
 
+	public Congreso() {
+
+	}
+
+	public Congreso(Long id, String nombre, String sitio_web, String nom_cont, String telf, String email, Date fech_ini,
+			Date fech_fin, String usuario_crea, Date fech_crea, String usuario_mod, Date fech_mod) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.sitio_web = sitio_web;
+		this.nom_cont = nom_cont;
+		this.telf = telf;
+		this.email = email;
+		this.fech_ini = fech_ini;
+		this.fech_fin = fech_fin;
+		this.usuario_crea = usuario_crea;
+		this.fech_crea = fech_crea;
+		this.usuario_mod = usuario_mod;
+		this.fech_mod = fech_mod;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getSitio_web() {
+		return sitio_web;
+	}
+
+	public void setSitio_web(String sitio_web) {
+		this.sitio_web = sitio_web;
+	}
+
+	public String getNom_cont() {
+		return nom_cont;
+	}
+
+	public void setNom_cont(String nom_cont) {
+		this.nom_cont = nom_cont;
+	}
+
+	public String getTelf() {
+		return telf;
+	}
+
+	public void setTelf(String telf) {
+		this.telf = telf;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Date getFech_ini() {
+		return fech_ini;
+	}
+
+	public void setFech_ini(Date fech_ini) {
+		this.fech_ini = fech_ini;
+	}
+
+	public Date getFech_fin() {
+		return fech_fin;
+	}
+
+	public void setFech_fin(Date fech_fin) {
+		this.fech_fin = fech_fin;
+	}
+
+	public String getUsuario_crea() {
+		return usuario_crea;
+	}
+
+	public void setUsuario_crea(String usuario_crea) {
+		this.usuario_crea = usuario_crea;
+	}
+
+	public Date getFech_crea() {
+		return fech_crea;
+	}
+
+	public void setFech_crea(Date fech_crea) {
+		this.fech_crea = fech_crea;
+	}
+
+	public String getUsuario_mod() {
+		return usuario_mod;
+	}
+
+	public void setUsuario_mod(String usuario_mod) {
+		this.usuario_mod = usuario_mod;
+	}
+
+	public Date getFech_mod() {
+		return fech_mod;
+	}
+
+	public void setFech_mod(Date fech_mod) {
+		this.fech_mod = fech_mod;
+	}
+
+	@Override
+	public String toString() {
+		return "Congreso [id=" + id + ", nombre=" + nombre + ", sitio_web=" + sitio_web + ", nom_cont=" + nom_cont
+				+ ", telf=" + telf + ", email=" + email + ", fech_ini=" + fech_ini + ", fech_fin=" + fech_fin
+				+ ", usuario_crea=" + usuario_crea + ", fech_crea=" + fech_crea + ", usuario_mod=" + usuario_mod
+				+ ", fech_mod=" + fech_mod + "]";
+	}
+	
 }

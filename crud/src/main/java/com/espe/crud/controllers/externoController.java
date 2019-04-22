@@ -1,9 +1,8 @@
 package com.espe.crud.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,18 +12,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.espe.crud.model.convenio;
 import com.espe.crud.model.externo;
-import com.espe.crud.repository.convocatoriaRepository;
-import com.espe.crud.service.convenioService;
-import com.espe.crud.service.externoService;
+import com.espe.crud.repository.externoRepository;
 
 
 
@@ -40,42 +34,75 @@ public class externoController {
 
 
 	    @Autowired
-		  private externoService externoService;
+	    externoRepository repository;
 	    
-	    @Autowired
-	    convocatoriaRepository repository;
-	      
-	  
+	    //**MUÉSTRA TODAS LOS D.EXTERNOS EXISTENTES EN LA BASE DE DADTOS**
 	    
-	    @RequestMapping(value = "/externo", method = RequestMethod.GET)
-	    public ResponseEntity<externo> list1() {
-	        List<externo> externo = externoService.list1();
-	        return new ResponseEntity(externo, HttpStatus.OK);
-	    }  
-	     
-
-	    @GetMapping("/externo/{id}")
-	    public ResponseEntity<externo> userById(@PathVariable long id) {
-	        Optional<externo> client = externoService.get(id);
-	        return new ResponseEntity(client, HttpStatus.OK);
+	    @GetMapping("/externos")
+	    public List<externo> getAllExternons() {
+	      System.out.println("Get all Externos ...");
+	   
+	      List<externo> externo = new ArrayList<>();
+	      repository.findAll().forEach(externo::add);
+	   
+	      return externo;
 	    }
 	    
+	    //**MUÉSTRA UN D.EXTERNO ESPECÍFICO 
+	    
+	    @GetMapping(value = "externo/{id}")
+	    public List<externo> findById(@PathVariable int id) {
+	   
+	      List<externo> externo = repository.findById(id);
+	      return externo;
+	    }
 
-	    @CrossOrigin("*")
-	    @RequestMapping(value = "/crearExterno", method = RequestMethod.POST)
-	    @ResponseBody
-	    public ResponseEntity<externo> create(@Valid @RequestBody externo externos) {
-	    	externo externosCreated = externoService.create(externos);
-	        return new ResponseEntity(externosCreated, HttpStatus.CREATED);
+	    //**CREA UNA NUEVO D.EXTERNO**
+	    
+	    @PostMapping(value = "/externo/create")
+	    public externo postExterno(@RequestBody externo externo) {
+	      externo _externo = repository.save(new externo( externo.getId(), externo.getId_convenio(), externo.getDocentexter(), 
+	      externo.getSolicitmov(), externo.getGrup_inv(), externo.getLinea_inv(), externo.getBenef(), externo.getFech_inic(), 
+	      externo.getFech_fin(), externo.getObj(), externo.getMetodo(), externo.getMeta(), externo.getEntreg(), 
+	      externo.getCode(), externo.getPdm(), externo.getUsuario_crea(), externo.getFecha_crea(),
+	      externo.getUsuario_mod(), externo.getFecha_mod()));
+	      return _externo;
 	    }
 	    
-	    @CrossOrigin("*")
-	    @RequestMapping(value = "/editExterno", method = RequestMethod.POST)
-	    @ResponseBody
-	    public ResponseEntity<externo> edit(@Valid @RequestBody externo externos) {
-	    	externo externosCreated = externoService.edit(externos);
-	        return new ResponseEntity(externosCreated, HttpStatus.CREATED);
-	    }
+	    //**EDITA UN D.EXTERNO DE ACUERDO A SU ID**
+	    
+	    @PutMapping("/externo/update/{id}")
+	    public ResponseEntity<externo> updateExterno(@PathVariable("id") 
+	    Long id, @RequestBody externo externo) {
+	      System.out.println("Update d.externo with ID = " + id + "...");
+	      Optional<externo> externoData = repository.findById(id);
+	   
+	      if (externoData.isPresent()) {
+	        externo _externo = externoData.get();
+	        _externo.setId_convenio(externo.getId_convenio());
+	        _externo.setDocentexter(externo.getDocentexter());
+	        _externo.setSolicitmov(externo.getSolicitmov());
+	        _externo.setGrup_inv(externo.getGrup_inv());
+	        _externo.setLinea_inv(externo.getLinea_inv());
+	        _externo.setBenef(externo.getBenef());
+	        _externo.setFech_inic(externo.getFech_inic());
+	        _externo.setFech_fin(externo.getFech_fin());
+	        _externo.setObj(externo.getObj());
+	        _externo.setMetodo(externo.getMetodo());
+	        _externo.setMeta(externo.getMeta());
+	        _externo.setEntreg(externo.getEntreg());
+	        _externo.setCode(externo.getCode());
+	        _externo.setPdm(externo.getPdm());
+	        _externo.setUsuario_crea(externo.getUsuario_crea());
+	        _externo.setFecha_crea(externo.getFecha_crea());
+	        _externo.setUsuario_mod(externo.getUsuario_mod());
+	        _externo.setFecha_mod(externo.getFecha_mod());
+	        
 
+	        return new ResponseEntity<>(repository.save(_externo), HttpStatus.OK);
+	      } else {
+	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	      }
+	    }
 
 }

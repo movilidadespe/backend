@@ -2,31 +2,37 @@ package com.espe.crud.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "UZMTPLANMOV", schema="UTIC")
 public class PlanMovilidad {
+	
+	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-	private Long UZMTPLANMOV_ID;
+	@Column(name = "UZMTPLANMOV_ID")
+	private Long id_planmov;
 	
-	private Long UZMTIPMOV_ID;
+	@Column(name = "UZMTIPMOV_ID")
+	private Long id_tipmov;
 	
-	private String UZMTPLANMOV_NOMBRE;
+	@Column(name = "UZMTPLANMOV_NOMBRE")
+	private String nombre;
 	
-	private String UZMTPLANMOV_USUARIO_CREA;
+	@Column(name = "UZMTPLANMOV_USUARIO_CREA")
+	private String usuario_crea;
 	
-
-	private Date UZMTPLANMOV_FECHA_CREA;
+	@Column(name = "UZMTPLANMOV_FECHA_CREA")
+	private Date fecha_crea;
 		
-	private String UZMTPLANMOV_USUARIO_MOD;	
+	@Column(name = "UZMTPLANMOV_USUARIO_MOD")
+	private String usuario_mod;	
 
-    private Date UZMTPLANMOV_FECHA_MOD;
+	@Column(name = "UZMTPLANMOV_FECHA_MOD")
+    private Date fecha_mod;
     
     
 
@@ -34,62 +40,111 @@ public class PlanMovilidad {
 		
 	}
 
-	public Long getUZMTPLANMOV_ID() {
-		return UZMTPLANMOV_ID;
+
+
+	public PlanMovilidad(Long id_planmov, Long id_tipmov, String nombre, String usuario_crea, Date fecha_crea,
+			String usuario_mod, Date fecha_mod) {
+		super();
+		this.id_planmov = id_planmov;
+		this.id_tipmov = id_tipmov;
+		this.nombre = nombre;
+		this.usuario_crea = usuario_crea;
+		this.fecha_crea = fecha_crea;
+		this.usuario_mod = usuario_mod;
+		this.fecha_mod = fecha_mod;
 	}
 
-	public void setUZMTPLANMOV_ID(Long uZMTPLANMOV_ID) {
-		UZMTPLANMOV_ID = uZMTPLANMOV_ID;
+
+
+	public Long getId_planmov() {
+		return id_planmov;
 	}
 
-	public Long getUZMTIPMOV_ID() {
-		return UZMTIPMOV_ID;
+
+
+	public void setId_planmov(Long id_planmov) {
+		this.id_planmov = id_planmov;
 	}
 
-	public void setUZMTIPMOV_ID(Long uZMTIPMOV_ID) {
-		UZMTIPMOV_ID = uZMTIPMOV_ID;
+
+
+	public Long getId_tipmov() {
+		return id_tipmov;
 	}
 
-	public String getUZMTPLANMOV_NOMBRE() {
-		return UZMTPLANMOV_NOMBRE;
+
+
+	public void setId_tipmov(Long id_tipmov) {
+		this.id_tipmov = id_tipmov;
 	}
 
-	public void setUZMTPLANMOV_NOMBRE(String uZMTPLANMOV_NOMBRE) {
-		UZMTPLANMOV_NOMBRE = uZMTPLANMOV_NOMBRE;
+
+
+	public String getNombre() {
+		return nombre;
 	}
 
-	public String getUZMTPLANMOV_USUARIO_CREA() {
-		return UZMTPLANMOV_USUARIO_CREA;
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-	public void setUZMTPLANMOV_USUARIO_CREA(String uZMTPLANMOV_USUARIO_CREA) {
-		UZMTPLANMOV_USUARIO_CREA = uZMTPLANMOV_USUARIO_CREA;
+
+
+	public String getUsuario_crea() {
+		return usuario_crea;
 	}
 
-	public Date getUZMTPLANMOV_FECHA_CREA() {
-		return UZMTPLANMOV_FECHA_CREA;
+
+
+	public void setUsuario_crea(String usuario_crea) {
+		this.usuario_crea = usuario_crea;
 	}
 
-	public void setUZMTPLANMOV_FECHA_CREA(Date uZMTPLANMOV_FECHA_CREA) {
-		UZMTPLANMOV_FECHA_CREA = uZMTPLANMOV_FECHA_CREA;
+
+
+	public Date getFecha_crea() {
+		return fecha_crea;
 	}
 
-	public String getUZMTPLANMOV_USUARIO_MOD() {
-		return UZMTPLANMOV_USUARIO_MOD;
+
+
+	public void setFecha_crea(Date fecha_crea) {
+		this.fecha_crea = fecha_crea;
 	}
 
-	public void setUZMTPLANMOV_USUARIO_MOD(String uZMTPLANMOV_USUARIO_MOD) {
-		UZMTPLANMOV_USUARIO_MOD = uZMTPLANMOV_USUARIO_MOD;
+
+
+	public String getUsuario_mod() {
+		return usuario_mod;
 	}
 
-	public Date getUZMTPLANMOV_FECHA_MOD() {
-		return UZMTPLANMOV_FECHA_MOD;
+
+
+	public void setUsuario_mod(String usuario_mod) {
+		this.usuario_mod = usuario_mod;
 	}
 
-	public void setUZMTPLANMOV_FECHA_MOD(Date uZMTPLANMOV_FECHA_MOD) {
-		UZMTPLANMOV_FECHA_MOD = uZMTPLANMOV_FECHA_MOD;
+
+
+	public Date getFecha_mod() {
+		return fecha_mod;
 	}
-    
-    
+
+
+
+	public void setFecha_mod(Date fecha_mod) {
+		this.fecha_mod = fecha_mod;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "PlanMovilidad [id_planmov=" + id_planmov + ", id_tipmov=" + id_tipmov + ", nombre=" + nombre
+				+ ", usuario_crea=" + usuario_crea + ", fecha_crea=" + fecha_crea + ", usuario_mod=" + usuario_mod
+				+ ", fecha_mod=" + fecha_mod + "]";
+	}
 	
 }

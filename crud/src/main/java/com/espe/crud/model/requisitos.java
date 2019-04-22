@@ -2,6 +2,7 @@ package com.espe.crud.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,105 +12,119 @@ import javax.persistence.Table;
 public class requisitos {
 
 	@Id
-	private Long UZMTREQUISITO_ID;
+	@Column(name = "UZMTREQUISITO_ID")
+	private Long id_requisito;
 
-    private String UZMTREQUISITO_NOMBRE;
+	@Column(name = "UZMTREQUISITO_NOMBRE")
+    private String nombre;
     
-    private String UZMTREQUISITO_DETALLE;
+	@Column(name = "UZMTREQUISITO_DETALLE")
+    private String detalle;
     
-    private Long UZMTREQUISITO_ESTADO;
+	@Column(name = "UZMTREQUISITO_ESTADO")
+    private Boolean estado;
     
-    private String UZMTREQUISITO_USUARIO_CREA;
+	@Column(name = "UZMTREQUISITO_USUARIO_CREA")
+    private String usuario_crea;
 	
-    private Date UZMTREQUISITO_FECHA_CREA;
+	@Column(name = "UZMTREQUISITO_FECHA_CREA")
+    private Date fecha_crea;
 	
+	@Column(name = "UZMTREQUISITO_USUARIO_MOD")
+    private String usuario_mod;
 	
-    private String UZMTREQUISITO_USUARIO_MOD;
-	
-	
-    private Date UZMTREQUISITO_FECHA_MOD;
+	@Column(name = "UZMTREQUISITO_FECHA_MOD")
+    private Date fecha_mod;
 
+	public requisitos() {
 
-	public Long getUZMTREQUISITO_ID() {
-		return UZMTREQUISITO_ID;
 	}
 
-
-	public void setUZMTREQUISITO_ID(Long uZMTREQUISITO_ID) {
-		UZMTREQUISITO_ID = uZMTREQUISITO_ID;
+	public requisitos(Long id_requisito, String nombre, String detalle, Boolean estado, String usuario_crea,
+			Date fecha_crea, String usuario_mod, Date fecha_mod) {
+		super();
+		this.id_requisito = id_requisito;
+		this.nombre = nombre;
+		this.detalle = detalle;
+		this.estado = estado;
+		this.usuario_crea = usuario_crea;
+		this.fecha_crea = fecha_crea;
+		this.usuario_mod = usuario_mod;
+		this.fecha_mod = fecha_mod;
 	}
 
-
-	public String getUZMTREQUISITO_NOMBRE() {
-		return UZMTREQUISITO_NOMBRE;
+	public Long getId_requisito() {
+		return id_requisito;
 	}
 
-
-	public void setUZMTREQUISITO_NOMBRE(String uZMTREQUISITO_NOMBRE) {
-		UZMTREQUISITO_NOMBRE = uZMTREQUISITO_NOMBRE;
+	public void setId_requisito(Long id_requisito) {
+		this.id_requisito = id_requisito;
 	}
 
-
-	public String getUZMTREQUISITO_DETALLE() {
-		return UZMTREQUISITO_DETALLE;
+	public String getNombre() {
+		return nombre;
 	}
 
-
-	public void setUZMTREQUISITO_DETALLE(String uZMTREQUISITO_DETALLE) {
-		UZMTREQUISITO_DETALLE = uZMTREQUISITO_DETALLE;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-
-	public Long getUZMTREQUISITO_ESTADO() {
-		return UZMTREQUISITO_ESTADO;
+	public String getDetalle() {
+		return detalle;
 	}
 
-
-	public void setUZMTREQUISITO_ESTADO(Long uZMTREQUISITO_ESTADO) {
-		UZMTREQUISITO_ESTADO = uZMTREQUISITO_ESTADO;
+	public void setDetalle(String detalle) {
+		this.detalle = detalle;
 	}
 
-
-	public String getUZMTREQUISITO_USUARIO_CREA() {
-		return UZMTREQUISITO_USUARIO_CREA;
+	public Boolean getEstado() {
+		return estado;
 	}
 
-
-	public void setUZMTREQUISITO_USUARIO_CREA(String uZMTREQUISITO_USUARIO_CREA) {
-		UZMTREQUISITO_USUARIO_CREA = uZMTREQUISITO_USUARIO_CREA;
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
 	}
 
-
-	public Date getUZMTREQUISITO_FECHA_CREA() {
-		return UZMTREQUISITO_FECHA_CREA;
+	public String getUsuario_crea() {
+		return usuario_crea;
 	}
 
-
-	public void setUZMTREQUISITO_FECHA_CREA(Date uZMTREQUISITO_FECHA_CREA) {
-		UZMTREQUISITO_FECHA_CREA = uZMTREQUISITO_FECHA_CREA;
+	public void setUsuario_crea(String usuario_crea) {
+		this.usuario_crea = usuario_crea;
 	}
 
-
-	public String getUZMTREQUISITO_USUARIO_MOD() {
-		return UZMTREQUISITO_USUARIO_MOD;
+	public Date getFecha_crea() {
+		return fecha_crea;
 	}
 
-
-	public void setUZMTREQUISITO_USUARIO_MOD(String uZMTREQUISITO_USUARIO_MOD) {
-		UZMTREQUISITO_USUARIO_MOD = uZMTREQUISITO_USUARIO_MOD;
+	public void setFecha_crea(Date fecha_crea) {
+		this.fecha_crea = fecha_crea;
 	}
 
-
-	public Date getUZMTREQUISITO_FECHA_MOD() {
-		return UZMTREQUISITO_FECHA_MOD;
+	public String getUsuario_mod() {
+		return usuario_mod;
 	}
 
-
-	public void setUZMTREQUISITO_FECHA_MOD(Date uZMTREQUISITO_FECHA_MOD) {
-		UZMTREQUISITO_FECHA_MOD = uZMTREQUISITO_FECHA_MOD;
+	public void setUsuario_mod(String usuario_mod) {
+		this.usuario_mod = usuario_mod;
 	}
-    
-    
+
+	public Date getFecha_mod() {
+		return fecha_mod;
+	}
+
+	public void setFecha_mod(Date fecha_mod) {
+		this.fecha_mod = fecha_mod;
+	}
+
+	@Override
+	public String toString() {
+		return "requisitos [id_requisito=" + id_requisito + ", nombre=" + nombre + ", detalle=" + detalle + ", estado="
+				+ estado + ", usuario_crea=" + usuario_crea + ", fecha_crea=" + fecha_crea + ", usuario_mod="
+				+ usuario_mod + ", fecha_mod=" + fecha_mod + "]";
+	}
+
+  
     
     
 }

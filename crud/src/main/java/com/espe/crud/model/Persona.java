@@ -2,177 +2,235 @@ package com.espe.crud.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
+
 public class Persona {
 
-	private Long PAR_PIDM;
+	@Column(name = "PAR_PIDM")
+	private Long par_pdm;
 	
-	private String ID_BANNER;
+	@Column(name = "ID_BANNER")
+	private String id_banner;
 	
-	private Long NUMERO_DOCUMENTO;
+	@Column(name = "NUMERO_DOCUMENTO")
+	private Long numero_documento;
 	
-	private String APELLIDO;
+	@Column(name = "APELLIDO")
+	private String apellido;
 	
-	private String NOMBRES;
+	@Column(name = "NOMBRES")
+	private String nombres;
 	
-	private String PREFIJO;
+	@Column(name = "PREFIJO")
+	private String prefijo;
 	
-	private Date FECHA_NACIMIENTO;
+	@Column(name = "FECHA_NACIMIENTO")
+	private Date fecha_nacimiento;
 	
-	private String NACIONALIDAD;
+	@Column(name = "NACIONALIDAD")
+	private String nacionalidad;
 	
-	private String SEXO;
+	@Column(name = "SEXO")
+	private String sexo;
 	
-	private String TIPO_SANGRE;
+	@Column(name = "TIPO_SANGRE")
+	private String tipo_sangre;
 	
-	private String TIPO_DISC;
+	@Column(name = "TIPO_DISC")
+	private String tipo_discap;
 	
-	private String TIPO_EMPLEADO;
+	@Column(name = "TIPO_EMPLEADO")
+	private String tipo_empleado;
 	
-	private String STATUS;
+	@Column(name = "STATUS")
+	private String status;
 	
-	private String SECCION;
+	@Column(name = "SECCION")
+	private String seccion;
 	
-	private String UBICACION;
+	@Column(name = "UBICACION")
+	private String ubicacion;
 	
-	private String DEPARTAMENTO;
+	@Column(name = "DEPARTAMENTO")
+	private String departamento;
 	
-	private String DEDICACION;
+	@Column(name = "DEDICACION")
+	private String dedicacion;
 
-	public Long getPAR_PIDM() {
-		return PAR_PIDM;
+	public Persona() {
+
 	}
 
-	public void setPAR_PIDM(Long pAR_PIDM) {
-		PAR_PIDM = pAR_PIDM;
+	public Persona(Long par_pdm, String id_banner, Long numero_documento, String apellido, String nombres,
+			String prefijo, Date fecha_nacimiento, String nacionalidad, String sexo, String tipo_sangre,
+			String tipo_discap, String tipo_empleado, String status, String seccion, String ubicacion,
+			String departamento, String dedicacion) {
+		super();
+		this.par_pdm = par_pdm;
+		this.id_banner = id_banner;
+		this.numero_documento = numero_documento;
+		this.apellido = apellido;
+		this.nombres = nombres;
+		this.prefijo = prefijo;
+		this.fecha_nacimiento = fecha_nacimiento;
+		this.nacionalidad = nacionalidad;
+		this.sexo = sexo;
+		this.tipo_sangre = tipo_sangre;
+		this.tipo_discap = tipo_discap;
+		this.tipo_empleado = tipo_empleado;
+		this.status = status;
+		this.seccion = seccion;
+		this.ubicacion = ubicacion;
+		this.departamento = departamento;
+		this.dedicacion = dedicacion;
 	}
 
-	public String getID_BANNER() {
-		return ID_BANNER;
+	public Long getPar_pdm() {
+		return par_pdm;
 	}
 
-	public void setID_BANNER(String iD_BANNER) {
-		ID_BANNER = iD_BANNER;
+	public void setPar_pdm(Long par_pdm) {
+		this.par_pdm = par_pdm;
 	}
 
-	public Long getNUMERO_DOCUMENTO() {
-		return NUMERO_DOCUMENTO;
+	public String getId_banner() {
+		return id_banner;
 	}
 
-	public void setNUMERO_DOCUMENTO(Long nUMERO_DOCUMENTO) {
-		NUMERO_DOCUMENTO = nUMERO_DOCUMENTO;
+	public void setId_banner(String id_banner) {
+		this.id_banner = id_banner;
 	}
 
-	public String getAPELLIDO() {
-		return APELLIDO;
+	public Long getNumero_documento() {
+		return numero_documento;
 	}
 
-	public void setAPELLIDO(String aPELLIDO) {
-		APELLIDO = aPELLIDO;
+	public void setNumero_documento(Long numero_documento) {
+		this.numero_documento = numero_documento;
 	}
 
-	public String getNOMBRES() {
-		return NOMBRES;
+	public String getApellido() {
+		return apellido;
 	}
 
-	public void setNOMBRES(String nOMBRES) {
-		NOMBRES = nOMBRES;
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 
-	public String getPREFIJO() {
-		return PREFIJO;
+	public String getNombres() {
+		return nombres;
 	}
 
-	public void setPREFIJO(String pREFIJO) {
-		PREFIJO = pREFIJO;
+	public void setNombres(String nombres) {
+		this.nombres = nombres;
 	}
 
-	public Date getFECHA_NACIMIENTO() {
-		return FECHA_NACIMIENTO;
+	public String getPrefijo() {
+		return prefijo;
 	}
 
-	public void setFECHA_NACIMIENTO(Date fECHA_NACIMIENTO) {
-		FECHA_NACIMIENTO = fECHA_NACIMIENTO;
+	public void setPrefijo(String prefijo) {
+		this.prefijo = prefijo;
 	}
 
-	public String getNACIONALIDAD() {
-		return NACIONALIDAD;
+	public Date getFecha_nacimiento() {
+		return fecha_nacimiento;
 	}
 
-	public void setNACIONALIDAD(String nACIONALIDAD) {
-		NACIONALIDAD = nACIONALIDAD;
+	public void setFecha_nacimiento(Date fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
 	}
 
-	public String getSEXO() {
-		return SEXO;
+	public String getNacionalidad() {
+		return nacionalidad;
 	}
 
-	public void setSEXO(String sEXO) {
-		SEXO = sEXO;
+	public void setNacionalidad(String nacionalidad) {
+		this.nacionalidad = nacionalidad;
 	}
 
-	public String getTIPO_SANGRE() {
-		return TIPO_SANGRE;
+	public String getSexo() {
+		return sexo;
 	}
 
-	public void setTIPO_SANGRE(String tIPO_SANGRE) {
-		TIPO_SANGRE = tIPO_SANGRE;
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
 	}
 
-	public String getTIPO_DISC() {
-		return TIPO_DISC;
+	public String getTipo_sangre() {
+		return tipo_sangre;
 	}
 
-	public void setTIPO_DISC(String tIPO_DISC) {
-		TIPO_DISC = tIPO_DISC;
+	public void setTipo_sangre(String tipo_sangre) {
+		this.tipo_sangre = tipo_sangre;
 	}
 
-	public String getTIPO_EMPLEADO() {
-		return TIPO_EMPLEADO;
+	public String getTipo_discap() {
+		return tipo_discap;
 	}
 
-	public void setTIPO_EMPLEADO(String tIPO_EMPLEADO) {
-		TIPO_EMPLEADO = tIPO_EMPLEADO;
+	public void setTipo_discap(String tipo_discap) {
+		this.tipo_discap = tipo_discap;
 	}
 
-	public String getSTATUS() {
-		return STATUS;
+	public String getTipo_empleado() {
+		return tipo_empleado;
 	}
 
-	public void setSTATUS(String sTATUS) {
-		STATUS = sTATUS;
+	public void setTipo_empleado(String tipo_empleado) {
+		this.tipo_empleado = tipo_empleado;
 	}
 
-	public String getSECCION() {
-		return SECCION;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setSECCION(String sECCION) {
-		SECCION = sECCION;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
-	public String getUBICACION() {
-		return UBICACION;
+	public String getSeccion() {
+		return seccion;
 	}
 
-	public void setUBICACION(String uBICACION) {
-		UBICACION = uBICACION;
+	public void setSeccion(String seccion) {
+		this.seccion = seccion;
 	}
 
-	public String getDEPARTAMENTO() {
-		return DEPARTAMENTO;
+	public String getUbicacion() {
+		return ubicacion;
 	}
 
-	public void setDEPARTAMENTO(String dEPARTAMENTO) {
-		DEPARTAMENTO = dEPARTAMENTO;
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
 	}
 
-	public String getDEDICACION() {
-		return DEDICACION;
+	public String getDepartamento() {
+		return departamento;
 	}
 
-	public void setDEDICACION(String dEDICACION) {
-		DEDICACION = dEDICACION;
+	public void setDepartamento(String departamento) {
+		this.departamento = departamento;
 	}
+
+	public String getDedicacion() {
+		return dedicacion;
+	}
+
+	public void setDedicacion(String dedicacion) {
+		this.dedicacion = dedicacion;
+	}
+
+	@Override
+	public String toString() {
+		return "Persona [par_pdm=" + par_pdm + ", id_banner=" + id_banner + ", numero_documento=" + numero_documento
+				+ ", apellido=" + apellido + ", nombres=" + nombres + ", prefijo=" + prefijo + ", fecha_nacimiento="
+				+ fecha_nacimiento + ", nacionalidad=" + nacionalidad + ", sexo=" + sexo + ", tipo_sangre="
+				+ tipo_sangre + ", tipo_discap=" + tipo_discap + ", tipo_empleado=" + tipo_empleado + ", status="
+				+ status + ", seccion=" + seccion + ", ubicacion=" + ubicacion + ", departamento=" + departamento
+				+ ", dedicacion=" + dedicacion + "]";
+	}
+
 	
 	
 }

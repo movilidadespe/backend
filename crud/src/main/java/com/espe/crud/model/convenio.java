@@ -27,7 +27,7 @@ public class convenio {
     private Date fecha_fin;
 	
 	@Column(name = "UZMTCONVENIO_ESTADO")
-    private Long estado;
+    private Boolean estado;
 	
 	@Column(name = "STUSBGI_CODE")
     private Long code;
@@ -50,6 +50,22 @@ public class convenio {
 
 	public convenio() {
 		
+	}
+
+
+	public convenio(Long id, Long id_tip_conve, Date fecha_ini, Date fecha_fin, Boolean estado, Long code,
+			String user_crea, Date fecha_crea, String usuario_mod, Date fecha_mod) {
+		super();
+		this.id = id;
+		this.id_tip_conve = id_tip_conve;
+		this.fecha_ini = fecha_ini;
+		this.fecha_fin = fecha_fin;
+		this.estado = estado;
+		this.code = code;
+		this.user_crea = user_crea;
+		this.fecha_crea = fecha_crea;
+		this.usuario_mod = usuario_mod;
+		this.fecha_mod = fecha_mod;
 	}
 
 
@@ -93,12 +109,12 @@ public class convenio {
 	}
 
 
-	public Long getEstado() {
+	public Boolean getEstado() {
 		return estado;
 	}
 
 
-	public void setEstado(Long estado) {
+	public void setEstado(Boolean estado) {
 		this.estado = estado;
 	}
 

@@ -2,6 +2,7 @@ package com.espe.crud.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,95 +12,134 @@ import javax.persistence.Table;
 public class solicitudmovilidad {
 
 	@Id
-	private Long UZMTSOLICTMOV_ID;
+	@Column(name = "UZMTSOLICTMOV_ID")
+	private Long id;
 	
-	private Long UZMTVERIREQ_ID;
+	@Column(name = "UZMTVERIREQ_ID")
+	private Long id_verif_req;
 	
-	private String UZMTSOLICTMOV_ESTADO;
+	@Column(name = "UZMTSOLICTMOV_ESTADO")
+	private Boolean estado ;
 	
-	private String UZMTSOLICTMOV_OBSER;
+	@Column(name = "UZMTSOLICTMOV_OBSER")
+	private String obser;
 	
-	private Date UZMTSOLICTMOV_FECH;
+	@Column(name = "UZMTSOLICTMOV_FECH")
+	private Date fecha_solicitud;
 	
-	private String UZMTSOLICTMOV_USUARIO_CREA;
+	@Column(name = "UZMTSOLICTMOV_USUARIO_CREA")
+	private String usuario_crea;
 	
-	private Date UZMTSOLICTMOV_FECHA_CREA;
+	@Column(name = "UZMTSOLICTMOV_FECHA_CREA")
+	private Date fecha_crea;
 
-	private String UZMTSOLICTMOV_USUARIO_MOD;
+	@Column(name = "UZMTSOLICTMOV_USUARIO_MOD")
+	private String usuario_mod ;
 	
-	private Date UZMTSOLICTMOV_FECHA_MOD;
+	@Column(name = "UZMTSOLICTMOV_FECHA_MOD")
+	private Date fecha_mod;
 
-	public Long getUZMTSOLICTMOV_ID() {
-		return UZMTSOLICTMOV_ID;
+	
+	public solicitudmovilidad() {
+		
+	}
+	
+   public solicitudmovilidad(Long id,Long id_verif_req,Boolean estado,String obser,Date fecha_solicitud,
+		   					 String usuario_crea,Date fecha_crea,String usuario_mod,Date fecha_mod) {
+	   super();
+	   this.id = id;
+	   this.id_verif_req = id_verif_req;
+	   this.estado = estado;
+	   this.obser = obser;
+	   this.fecha_solicitud = fecha_solicitud;
+	   this.usuario_crea = usuario_crea;
+	   this.fecha_crea = fecha_crea;
+	   this.usuario_mod = usuario_mod;
+	   this.fecha_mod = fecha_mod;
+		
+	}
+	
+	
+	
+	public Long getId() {
+		return id;
 	}
 
-	public void setUZMTSOLICTMOV_ID(Long uZMTSOLICTMOV_ID) {
-		UZMTSOLICTMOV_ID = uZMTSOLICTMOV_ID;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public Long getUZMTVERIREQ_ID() {
-		return UZMTVERIREQ_ID;
+	public Long getId_verif_req() {
+		return id_verif_req;
 	}
 
-	public void setUZMTVERIREQ_ID(Long uZMTVERIREQ_ID) {
-		UZMTVERIREQ_ID = uZMTVERIREQ_ID;
+	public void setId_verif_req(Long id_verif_req) {
+		this.id_verif_req = id_verif_req;
 	}
 
-	public String getUZMTSOLICTMOV_ESTADO() {
-		return UZMTSOLICTMOV_ESTADO;
+	public Boolean getEstado() {
+		return estado;
 	}
 
-	public void setUZMTSOLICTMOV_ESTADO(String uZMTSOLICTMOV_ESTADO) {
-		UZMTSOLICTMOV_ESTADO = uZMTSOLICTMOV_ESTADO;
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
 	}
 
-	public String getUZMTSOLICTMOV_OBSER() {
-		return UZMTSOLICTMOV_OBSER;
+	public String getObser() {
+		return obser;
 	}
 
-	public void setUZMTSOLICTMOV_OBSER(String uZMTSOLICTMOV_OBSER) {
-		UZMTSOLICTMOV_OBSER = uZMTSOLICTMOV_OBSER;
+	public void setObser(String obser) {
+		this.obser = obser;
 	}
 
-	public Date getUZMTSOLICTMOV_FECH() {
-		return UZMTSOLICTMOV_FECH;
+	public Date getFecha_solicitud() {
+		return fecha_solicitud;
 	}
 
-	public void setUZMTSOLICTMOV_FECH(Date uZMTSOLICTMOV_FECH) {
-		UZMTSOLICTMOV_FECH = uZMTSOLICTMOV_FECH;
+	public void setFecha_solicitud(Date fecha_solicitud) {
+		this.fecha_solicitud = fecha_solicitud;
 	}
 
-	public String getUZMTSOLICTMOV_USUARIO_CREA() {
-		return UZMTSOLICTMOV_USUARIO_CREA;
+	public String getUsuario_crea() {
+		return usuario_crea;
 	}
 
-	public void setUZMTSOLICTMOV_USUARIO_CREA(String uZMTSOLICTMOV_USUARIO_CREA) {
-		UZMTSOLICTMOV_USUARIO_CREA = uZMTSOLICTMOV_USUARIO_CREA;
+	public void setUsuario_crea(String usuario_crea) {
+		this.usuario_crea = usuario_crea;
 	}
 
-	public Date getUZMTSOLICTMOV_FECHA_CREA() {
-		return UZMTSOLICTMOV_FECHA_CREA;
+	public Date getFecha_crea() {
+		return fecha_crea;
 	}
 
-	public void setUZMTSOLICTMOV_FECHA_CREA(Date uZMTSOLICTMOV_FECHA_CREA) {
-		UZMTSOLICTMOV_FECHA_CREA = uZMTSOLICTMOV_FECHA_CREA;
+	public void setFecha_crea(Date fecha_crea) {
+		this.fecha_crea = fecha_crea;
 	}
 
-	public String getUZMTSOLICTMOV_USUARIO_MOD() {
-		return UZMTSOLICTMOV_USUARIO_MOD;
+	public String getUsuario_mod() {
+		return usuario_mod;
 	}
 
-	public void setUZMTSOLICTMOV_USUARIO_MOD(String uZMTSOLICTMOV_USUARIO_MOD) {
-		UZMTSOLICTMOV_USUARIO_MOD = uZMTSOLICTMOV_USUARIO_MOD;
+	public void setUsuario_mod(String usuario_mod) {
+		this.usuario_mod = usuario_mod;
 	}
 
-	public Date getUZMTSOLICTMOV_FECHA_MOD() {
-		return UZMTSOLICTMOV_FECHA_MOD;
+	public Date getFecha_mod() {
+		return fecha_mod;
 	}
 
-	public void setUZMTSOLICTMOV_FECHA_MOD(Date uZMTSOLICTMOV_FECHA_MOD) {
-		UZMTSOLICTMOV_FECHA_MOD = uZMTSOLICTMOV_FECHA_MOD;
+	public void setFecha_mod(Date fecha_mod) {
+		this.fecha_mod = fecha_mod;
 	}
 
+	
+	@Override
+	public String toString() {
+		return "solicitudmovilidad [id=" + id + ", id_verif_req=" + id_verif_req + ", estado=" + estado
+				+ ", obser=" + obser + ", fecha_solicitud =" + fecha_solicitud +", usuario_crea =" + usuario_crea 
+				+" , fecha_crea =" + fecha_crea +" , usuario_mod =" + usuario_mod +" , fecha_mod =" + fecha_mod +  "]";
+	}
+	
 	
 }

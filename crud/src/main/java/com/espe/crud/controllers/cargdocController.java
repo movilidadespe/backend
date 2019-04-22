@@ -1,9 +1,8 @@
 package com.espe.crud.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,16 +12,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.espe.crud.model.cargdoc;
-import com.espe.crud.model.convenio;
-import com.espe.crud.repository.convocatoriaRepository;
-import com.espe.crud.service.cargdocService;
+import com.espe.crud.repository.cargdocRepository;
 
 
 
@@ -37,34 +33,67 @@ public class cargdocController {
 	    public static final Logger logger = LoggerFactory.getLogger(cargdocController.class);
 
 
-	    @Autowired
-		  private cargdocService cargdocService;
 	    
 	    @Autowired
-	    convocatoriaRepository repository;
-	      
-	  
+	    cargdocRepository repository;
 	    
-	    @RequestMapping(value = "/cargdoc", method = RequestMethod.GET)
-	    public ResponseEntity<cargdoc> list1() {
-	        List<cargdoc> cargdoc = cargdocService.list1();
-	        return new ResponseEntity(cargdoc, HttpStatus.OK);
-	    }  
-	     
-
-	    @GetMapping("/cargdoc/{id}")
-	    public ResponseEntity<cargdoc> userById(@PathVariable long id) {
-	        Optional<cargdoc> client = cargdocService.get(id);
-	        return new ResponseEntity(client, HttpStatus.OK);
+	    //**MUÉSTRA TODOS LOS DOCUMENTOS CARGADOS EN LA BASE DE DADTOS**
+	    
+	    @GetMapping("/cargdocs")
+	    public List<cargdoc> getAllCargdoc() {
+	      System.out.println("Get all Cargdoc ...");
+	   
+	      List<cargdoc> cargdoc = new ArrayList<>();
+	      repository.findAll().forEach(cargdoc::add);
+	   
+	      return cargdoc;
 	    }
 	    
+	    //**MUÉSTRA UN DOCUMENTO CARGADO EN ESPECÍFICO
+	    
+	    @GetMapping(value = "cargdoc/{id}")
+	    public List<cargdoc> findById(@PathVariable long id) {
+	   
+	      List<cargdoc> cargdoc = repository.findById(id);
+	      return cargdoc;
+	    }
 
-	    @CrossOrigin("*")
-	    @RequestMapping(value = "/crearCargdoc", method = RequestMethod.POST)
-	    @ResponseBody
-	    public ResponseEntity<cargdoc> create(@Valid @RequestBody cargdoc cargdocs) {
-	    	cargdoc cargdocCreated = cargdocService.create(cargdocs);
-	        return new ResponseEntity(cargdocCreated, HttpStatus.CREATED);
+	    //**CARGA UN NUEVO DOCUMENTO**
+	    
+	    @PostMapping(value = "/cargdoc/create")
+	    public cargdoc postCargdoc(@RequestBody cargdoc Cargdoc) {
+	      cargdoc _cargdoc = repository.save(new cargdoc( Cargdoc.getId(), Cargdoc.getId_tip_doc(),
+	      Cargdoc.getId_fmovilidad(), Cargdoc.getId_externo(), Cargdoc.getId_gestinv(), Cargdoc.getId_testinter(), 
+	      Cargdoc.getTipdoc_ruta(), Cargdoc.getUsuario_crea(), Cargdoc.getFecha_crea(), Cargdoc.getUsuario_mod(), 
+	      Cargdoc.getFecha_mod()));
+	      return _cargdoc;
 	    }
 	    
+	    //**EDITA UN DOCUMENTO CARGADO DE ACUERDO A SU ID**
+	    
+	    @PutMapping("/cargdoc/update/{id}")
+	    public ResponseEntity<cargdoc> updateCargdoc(@PathVariable("id") 
+	    Long id, @RequestBody cargdoc cargdoc) {
+	      System.out.println("Update cargdoc with ID = " + id + "...");
+	      Optional<cargdoc> cargdocData = repository.findById(id);
+	   
+	      if (cargdocData.isPresent()) {
+	        cargdoc _cargdoc = cargdocData.get();
+	        _cargdoc.setId_tip_doc(cargdoc.getId_tip_doc());
+	        _cargdoc.setId_fmovilidad(cargdoc.getId_fmovilidad());
+	        _cargdoc.setId_externo(cargdoc.getId_externo());
+	        _cargdoc.setId_gestinv(cargdoc.getId_gestinv());
+	        _cargdoc.setId_testinter(cargdoc.getId_testinter());
+	        _cargdoc.setTipdoc_ruta(cargdoc.getTipdoc_ruta());
+	        _cargdoc.setUsuario_crea(cargdoc.getUsuario_crea());
+	        _cargdoc.setFecha_crea(cargdoc.getFecha_crea());
+	        _cargdoc.setUsuario_mod(cargdoc.getUsuario_mod());
+	        _cargdoc.setFecha_mod(cargdoc.getFecha_mod());
+	        
+	        return new ResponseEntity<>(repository.save(_cargdoc), HttpStatus.OK);
+	      } else {
+	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	      }
+	    }
+	  	
 }

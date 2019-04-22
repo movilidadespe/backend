@@ -78,10 +78,35 @@ public class formexterinvi {
 	private Date fecha_mod;
 	
 	
-	public formexterinvi() {
-		
-	}
 
+
+	public formexterinvi(Long id, Long id_convenio, Long id_cronog, Long id_lugar, Long id_solitmov,
+			String antecedentes, String obj, Date fecha_ini, Date fecha_fin, String meta, String entreg,
+			String nom_cont, String telf_cont, String email_cont, String nom_doctora, String nom_tesis,
+			String num_apro_doct, String usuario_crea, Date fecha_crea, String usuario_mod, Date fecha_mod) {
+		super();
+		this.id = id;
+		this.id_convenio = id_convenio;
+		this.id_cronog = id_cronog;
+		this.id_lugar = id_lugar;
+		this.id_solitmov = id_solitmov;
+		this.antecedentes = antecedentes;
+		this.obj = obj;
+		this.fecha_ini = fecha_ini;
+		this.fecha_fin = fecha_fin;
+		this.meta = meta;
+		this.entreg = entreg;
+		this.nom_cont = nom_cont;
+		this.telf_cont = telf_cont;
+		this.email_cont = email_cont;
+		this.nom_doctora = nom_doctora;
+		this.nom_tesis = nom_tesis;
+		this.num_apro_doct = num_apro_doct;
+		this.usuario_crea = usuario_crea;
+		this.fecha_crea = fecha_crea;
+		this.usuario_mod = usuario_mod;
+		this.fecha_mod = fecha_mod;
+	}
 
 	public Long getId() {
 		return id;

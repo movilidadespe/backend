@@ -2,6 +2,7 @@ package com.espe.crud.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,105 +12,145 @@ import javax.persistence.Table;
 public class verificacion {
 
 	@Id
-	private Long UZMTVERIREQ_ID;
+	@Column(name = "UZMTVERIREQ_ID")
+	private Long id;
 	
-	private Long UZMTREQPLANM_ID;
+	@Column(name = "UZMTREQPLANM_ID")
+	private Long id_requisito_pl;
 	
-	private Long UZMTREQMOVSUBM_ID;
+	@Column(name = "UZMTREQMOVSUBM_ID")
+	private Long id_requisito_submov;
 	
-	private Long PEAEMPL_PIDM;
+	@Column(name = "PEAEMPL_PIDM")
+	private Long pidm;
 	
-	private Long UZMTVERIREQ_ESTADO;
+	@Column(name = "UZMTVERIREQ_ESTADO")
+	private Boolean estado ;
 	
-	private String UZMTVERIREQ_COD_SOLIC;
+	@Column(name = "UZMTVERIREQ_COD_SOLIC")
+	private String codigo_solicitud;
 	
-	private String UZMTVERIREQ_USUARIO_CREA;
+	@Column(name = "UZMTVERIREQ_USUARIO_CREA")
+	private String usuario_crea;
 	
-	private Date UZMTVERIREQ_FECHA_CREA;
+	@Column(name = "UZMTVERIREQ_FECHA_CREA")
+	private Date fecha_crea;
 	
-	private String UZMTVERIREQ_USUARIO_MOD;
+	@Column(name = "UZMTVERIREQ_USUARIO_MOD")
+	private String usuario_mod ;
 	
-	private Date UZMTVERIREQ_FECHA_MOD;
+	@Column(name = "UZMTVERIREQ_FECHA_MOD")
+	private Date fecha_mod;
 
-	public Long getUZMTVERIREQ_ID() {
-		return UZMTVERIREQ_ID;
+	
+	public verificacion() {
+		
+	}
+	
+    public verificacion(Long id,Long id_requisito_pl,Long id_requisito_submov,Long pidm,Boolean estado,
+    		             String codigo_solicitud, String usuario_crea, Date fecha_crea, String usuario_mod,Date fecha_mod) {
+    	super();
+    	this.id = id;
+    	this.id_requisito_pl = id_requisito_pl;
+    	this.id_requisito_submov = id_requisito_submov;
+    	this.pidm = pidm;
+    	this.estado = estado;
+    	this.codigo_solicitud = codigo_solicitud;
+    	this.usuario_crea = usuario_crea;
+    	this.fecha_crea = fecha_crea;
+    	this.usuario_mod = usuario_mod;
+    	this.fecha_mod = fecha_mod;
+		
+	}
+	
+	public Long getId() {
+		return id;
 	}
 
-	public void setUZMTVERIREQ_ID(Long uZMTVERIREQ_ID) {
-		UZMTVERIREQ_ID = uZMTVERIREQ_ID;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public Long getUZMTREQPLANM_ID() {
-		return UZMTREQPLANM_ID;
+	public Long getId_requisito_pl() {
+		return id_requisito_pl;
 	}
 
-	public void setUZMTREQPLANM_ID(Long uZMTREQPLANM_ID) {
-		UZMTREQPLANM_ID = uZMTREQPLANM_ID;
+	public void setId_requisito_pl(Long id_requisito_pl) {
+		this.id_requisito_pl = id_requisito_pl;
 	}
 
-	public Long getUZMTREQMOVSUBM_ID() {
-		return UZMTREQMOVSUBM_ID;
+	public Long getId_requisito_submov() {
+		return id_requisito_submov;
 	}
 
-	public void setUZMTREQMOVSUBM_ID(Long uZMTREQMOVSUBM_ID) {
-		UZMTREQMOVSUBM_ID = uZMTREQMOVSUBM_ID;
+	public void setId_requisito_submov(Long id_requisito_submov) {
+		this.id_requisito_submov = id_requisito_submov;
 	}
 
-	public Long getPEAEMPL_PIDM() {
-		return PEAEMPL_PIDM;
+	public Long getPidm() {
+		return pidm;
 	}
 
-	public void setPEAEMPL_PIDM(Long pEAEMPL_PIDM) {
-		PEAEMPL_PIDM = pEAEMPL_PIDM;
+	public void setPidm(Long pidm) {
+		this.pidm = pidm;
 	}
 
-	public Long getUZMTVERIREQ_ESTADO() {
-		return UZMTVERIREQ_ESTADO;
+	public Boolean getEstado() {
+		return estado;
 	}
 
-	public void setUZMTVERIREQ_ESTADO(Long uZMTVERIREQ_ESTADO) {
-		UZMTVERIREQ_ESTADO = uZMTVERIREQ_ESTADO;
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
 	}
 
-	public String getUZMTVERIREQ_COD_SOLIC() {
-		return UZMTVERIREQ_COD_SOLIC;
+	public String getCodigo_solicitud() {
+		return codigo_solicitud;
 	}
 
-	public void setUZMTVERIREQ_COD_SOLIC(String uZMTVERIREQ_COD_SOLIC) {
-		UZMTVERIREQ_COD_SOLIC = uZMTVERIREQ_COD_SOLIC;
+	public void setCodigo_solicitud(String codigo_solicitud) {
+		this.codigo_solicitud = codigo_solicitud;
 	}
 
-	public String getUZMTVERIREQ_USUARIO_CREA() {
-		return UZMTVERIREQ_USUARIO_CREA;
+	public String getUsuario_crea() {
+		return usuario_crea;
 	}
 
-	public void setUZMTVERIREQ_USUARIO_CREA(String uZMTVERIREQ_USUARIO_CREA) {
-		UZMTVERIREQ_USUARIO_CREA = uZMTVERIREQ_USUARIO_CREA;
+	public void setUsuario_crea(String usuario_crea) {
+		this.usuario_crea = usuario_crea;
 	}
 
-	public Date getUZMTVERIREQ_FECHA_CREA() {
-		return UZMTVERIREQ_FECHA_CREA;
+	public Date getFecha_crea() {
+		return fecha_crea;
 	}
 
-	public void setUZMTVERIREQ_FECHA_CREA(Date uZMTVERIREQ_FECHA_CREA) {
-		UZMTVERIREQ_FECHA_CREA = uZMTVERIREQ_FECHA_CREA;
+	public void setFecha_crea(Date fecha_crea) {
+		this.fecha_crea = fecha_crea;
 	}
 
-	public String getUZMTVERIREQ_USUARIO_MOD() {
-		return UZMTVERIREQ_USUARIO_MOD;
+	public String getUsuario_mod() {
+		return usuario_mod;
 	}
 
-	public void setUZMTVERIREQ_USUARIO_MOD(String uZMTVERIREQ_USUARIO_MOD) {
-		UZMTVERIREQ_USUARIO_MOD = uZMTVERIREQ_USUARIO_MOD;
+	public void setUsuario_mod(String usuario_mod) {
+		this.usuario_mod = usuario_mod;
 	}
 
-	public Date getUZMTVERIREQ_FECHA_MOD() {
-		return UZMTVERIREQ_FECHA_MOD;
+	public Date getFecha_mod() {
+		return fecha_mod;
 	}
 
-	public void setUZMTVERIREQ_FECHA_MOD(Date uZMTVERIREQ_FECHA_MOD) {
-		UZMTVERIREQ_FECHA_MOD = uZMTVERIREQ_FECHA_MOD;
+	public void setFecha_mod(Date fecha_mod) {
+		this.fecha_mod = fecha_mod;
 	}
+
+	@Override
+	public String toString() {
+		return "verificacion[id ="+ id +",id_requisito_pl ="+id_requisito_submov+",id_requisito_submov ="+id_requisito_submov
+				+",pidm="+pidm+",estado="+estado+",codigo_solicitud="+codigo_solicitud+",usuario_crea="
+				+ usuario_crea + ", fecha_crea=" + fecha_crea + ", usuario_mod=" + usuario_mod + ", fecha_mod="
+				+ fecha_mod + "]";
+	}
+	
 	
 	
 }

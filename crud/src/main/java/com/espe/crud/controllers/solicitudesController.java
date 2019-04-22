@@ -7,24 +7,26 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-
-import javax.validation.Valid;
+import java.util.Optional;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.espe.crud.model.solicitudes;
-import com.espe.crud.service.solicitudesService;
+import com.espe.crud.repository.solicitudesRepository;
 
 
 
@@ -34,13 +36,16 @@ import com.espe.crud.service.solicitudesService;
 public class solicitudesController {
 
 	  @Autowired
-	  private solicitudesService solicitudesService;
+	  private solicitudesRepository repository;
 	  
 	  
-	  @RequestMapping(value = "/solicitud", method = RequestMethod.GET)
-	    public ResponseEntity<solicitudes> list() {
-	        List<solicitudes> solicitudes = solicitudesService.list();
-	        return new ResponseEntity(solicitudes, HttpStatus.OK);
+	  @GetMapping("/solicitud")
+	  public List<solicitudes> getAllSolicitudes() {
+	       System.out.println("Get all Solicitudes");
+	       
+	       List<solicitudes> solicitudes = new ArrayList<>();
+	       repository.findAll().forEach(solicitudes::add);
+	       return solicitudes;
 	    }
 	    
 	  //  @RequestMapping(value = "/año/{PEBEMPL_PIDM}", method = RequestMethod.GET)
@@ -99,13 +104,46 @@ public class solicitudesController {
 			return new ResponseEntity<>(content, HttpStatus.OK);
 		}
 	  
+		  @GetMapping(value="/solicitud/{id}")
+		  public List<solicitudes> findById(@PathVariable int id) {
+		       System.out.println("Get all Solicitudes");
+		       
+		       List<solicitudes> solicitudes = repository.findById(id);
+		       return solicitudes;
+		    }
 	    
-		 @CrossOrigin("*")	  
-	    @RequestMapping(value = "/crear", method = RequestMethod.POST)
-		 @ResponseBody
-		 public ResponseEntity<solicitudes> create(@Valid @RequestBody solicitudes solicitudes) {
-	        solicitudes solicitudesCreated = solicitudesService.create(solicitudes);
-	        return new ResponseEntity(solicitudesCreated, HttpStatus.CREATED);
-	    }
+		//**CREA UNA  NUEVA SOLICITUD**
+		    
+		    @PostMapping(value = "/solicitud/create")
+		    public solicitudes postSolicitudes(@RequestBody solicitudes solicitudes) {
+		    	solicitudes _solicitudes = repository.save(new solicitudes( solicitudes.getId(),solicitudes.getId_convo(), solicitudes.getNombre(), 
+		    			    solicitudes.getUsuario_crea(), solicitudes.getFecha_crea(), solicitudes.getUsuario_mod(), solicitudes.getFecha_mod()));
+		      return _solicitudes;
+		    }
+		    
+		  
+		    //**EDITA UNA SOLICITUD DE ACUERDO A SU ID**
+		    
+		    @PutMapping("/solicitud/update/{id}")
+		    public ResponseEntity<solicitudes> updateSolicitudes(@PathVariable("id") 
+		    Long id, @RequestBody solicitudes solicitudes) {
+		      System.out.println("Update solicitudes with ID = " + id + "...");
+		      Optional<solicitudes> solicitudesData = repository.findById(id);
+		   
+		      if (solicitudesData.isPresent()) {
+		    	  solicitudes _solicitudes = solicitudesData.get();
+		    	  _solicitudes.setId_convo(solicitudes.getId_convo());
+		    	  _solicitudes.setNombre(solicitudes.getNombre());	
+		    	  _solicitudes.setUsuario_crea(solicitudes.getUsuario_crea());
+		    	  _solicitudes.setFecha_crea(solicitudes.getFecha_crea());
+		    	  _solicitudes.setUsuario_mod(solicitudes.getUsuario_mod());
+		    	  _solicitudes.setFecha_mod(solicitudes.getFecha_mod());
+		    	  
+
+		        return new ResponseEntity<>(repository.save(_solicitudes), HttpStatus.OK);
+		      } else {
+		        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		      }
+		    }
 
 }

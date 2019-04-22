@@ -1,9 +1,10 @@
 package com.espe.crud.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,16 +14,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.espe.crud.model.tipdoc;
 import com.espe.crud.repository.tipdocRepository;
-import com.espe.crud.service.tipdocService;
-
 
 
 
@@ -37,33 +35,62 @@ public class tipdocController {
 
 
 	    @Autowired
-		  private tipdocService tipdocService;
-	    
-	    @Autowired
 	    tipdocRepository repository;
 	      
-	  
-	    
-	    @RequestMapping(value = "/tipdoc", method = RequestMethod.GET)
-	    public ResponseEntity<tipdoc> list1() {
-	        List<tipdoc> tipdoc = tipdocService.list1();
-	        return new ResponseEntity(tipdoc, HttpStatus.OK);
+	    //**MUESTRA TODAS LOS TIPOS DE DOCUMENTOS EN LA BASE DE DADTOS**
+    
+	    @GetMapping(  "/tipdoc")
+	    public List<tipdoc> getAllTipdocs() {
+	    	System.out.println("Get all Tipos de documentos ...");
+	    	
+	        List<tipdoc> tipdoc = new ArrayList<>();
+	        return tipdoc;
 	    }  
 	     
-
-	    @GetMapping("/tipdoc/{id}")
-	    public ResponseEntity<tipdoc> userById(@PathVariable long id) {
-	        Optional<tipdoc> client = tipdocService.get(id);
-	        return new ResponseEntity(client, HttpStatus.OK);
+	  
+	    //**MUESTRA UN TIPO DE DOCUMENTO ESPECIFICA 
+	    @GetMapping(value ="/tipdoc/{id}")
+	    public List<tipdoc> findById(@PathVariable long id) {
+	    	
+	    	List<tipdoc> tipdoc = repository.findById(id);
+	        return tipdoc;
 	    }
 	    
 
-	    @CrossOrigin("*")
-	    @RequestMapping(value = "/crearTipdoc", method = RequestMethod.POST)
-	    @ResponseBody
-	    public ResponseEntity<tipdoc> create(@Valid @RequestBody tipdoc tipdocs) {
-	    	tipdoc tipdocCreated = tipdocService.create(tipdocs);
-	        return new ResponseEntity(tipdocCreated, HttpStatus.CREATED);
+	    //**CREA UN NUEVO TIPO DE DOCUMENTO**
+	    
+	    @PostMapping(value = "/tipdoc/create")
+	    public tipdoc postTipdoc(@RequestBody tipdoc tipodoc) {
+	    	tipdoc _tipdoc = repository.save(new tipdoc(tipodoc.getId(),
+	    			tipodoc.getNom_doc(), tipodoc.getEstado(), tipodoc.getUsuario_crea(), tipodoc.getFecha_crea(),
+	    			tipodoc.getUsuario_mod(),tipodoc.getFecha_mod()));
+	      return _tipdoc;
 	    }
+	    
+	   
+	    //**EDITA UN NUEVO TIPO DE DOCUMENTO DE ACUERDO A SU ID**
+	    
+	    @PutMapping("/tipdoc/update/{id}")
+	    public ResponseEntity<tipdoc> updateTipdoc(@PathVariable("id") 
+	    Long id, @RequestBody tipdoc tipdoc) {
+	      System.out.println("Update Tipo de documento with ID = " + id + "...");
+	      Optional<tipdoc> tipdocData = repository.findById(id);
+	   
+	      if (tipdocData.isPresent()) {
+	    	  tipdoc _tipdoc = tipdocData.get();
+	    	  _tipdoc.setNom_doc(tipdoc.getNom_doc());
+	    	  _tipdoc.setEstado(tipdoc.getEstado());
+	    	  _tipdoc.setUsuario_crea(tipdoc.getUsuario_crea());
+	    	  _tipdoc.setFecha_crea(tipdoc.getFecha_crea());
+	    	  _tipdoc.setUsuario_mod(tipdoc.getUsuario_mod());
+	    	  _tipdoc.setFecha_mod(tipdoc.getFecha_mod());
+	        
+	        
+	        return new ResponseEntity<>(repository.save(_tipdoc), HttpStatus.OK);
+	      } else {
+	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	      }
+	    }
+	    
 	    
 }

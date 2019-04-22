@@ -1,32 +1,35 @@
 package com.espe.crud.controllers;
 
-import javax.validation.Valid;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.espe.crud.model.FPublicacionesIndexadas;
-import com.espe.crud.service.FPublicacionesIndexadasService;
+import com.espe.crud.repository.FPublicacionesIndexadasRepository;
 
 @CrossOrigin(origins = "*")
 @RestController
 public class FPublicacionesIndexadasController {
 
-	 @Autowired
-	  private FPublicacionesIndexadasService FPublicacionesIndexadasService;
-	 
-	 @CrossOrigin("*")	  
-	    @RequestMapping(value = "/crearPublicacionIndexada", method = RequestMethod.POST)
-		 @ResponseBody
-		 public ResponseEntity<FPublicacionesIndexadas> create(@Valid @RequestBody FPublicacionesIndexadas FPublicacionesIndexadas) {
-		 FPublicacionesIndexadas solicitudesCreated = FPublicacionesIndexadasService.create(FPublicacionesIndexadas);
-	        return new ResponseEntity(solicitudesCreated, HttpStatus.CREATED);
-	    }
+    public static final Logger logger = LoggerFactory.getLogger(FPublicacionesIndexadasController.class);
+
+
+    @Autowired
+    FPublicacionesIndexadasRepository repository;
+    //**CREA UNA NUEVO D.EXTERNO**
+    
+    @PostMapping(value = "/FPublicacionesIndexadas/create")
+    public FPublicacionesIndexadas postFPublicacionesIndexadas(@RequestBody FPublicacionesIndexadas FPublicacionesIndexadas) {
+    	FPublicacionesIndexadas _FPublicacionesIndexadas = repository.save(new FPublicacionesIndexadas(
+    	FPublicacionesIndexadas.getId_fmovilidad(), FPublicacionesIndexadas.getId_congresxp(), FPublicacionesIndexadas.getId_solicitmov(), 
+    	FPublicacionesIndexadas.getId_movbd(), FPublicacionesIndexadas.getNom_artic(), FPublicacionesIndexadas.getNom_revis(),
+    	FPublicacionesIndexadas.getUsuario_crea(), FPublicacionesIndexadas.getFecha_crea(), FPublicacionesIndexadas.getUsuario_mod(), 
+    	FPublicacionesIndexadas.getFecha_mod()));
+      return _FPublicacionesIndexadas;
+    }
+   
 }

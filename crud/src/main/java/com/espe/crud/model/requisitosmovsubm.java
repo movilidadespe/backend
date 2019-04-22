@@ -2,6 +2,7 @@ package com.espe.crud.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,75 +12,104 @@ import javax.persistence.Table;
 public class requisitosmovsubm {
 
 	@Id
-	private Long UZMTREQMOVSUBM_ID;
+	@Column(name = "UZMTREQMOVSUBM_ID")
+	private Long id;
 	
-	private Long UZMTREQUISITO_ID;
+	@Column(name = "UZMTREQUISITO_ID")
+	private Long id_requisito;
 	
-	private Long UZMTMOVSUBM_ID;
+	@Column(name = "UZMTMOVSUBM_ID")
+	private Long id_movsubm;
 	
-	private String UZMTREQMOVSUBM_USUARIO_CREA;
+	@Column(name = "UZMTREQMOVSUBM_USUARIO_CREA")
+	private String usuario_crea;
 	
-	private Date UZMTREQMOVSUBM_FECHA_CREA;
+	@Column(name = "UZMTREQMOVSUBM_FECHA_CREA")
+	private Date fecha_crea;
 	
-	private String UZMTREQMOVSUBM_USUARIO_MOD;
+	@Column(name = "UZMTREQMOVSUBM_USUARIO_MOD")
+	private String usuario_mod;
 	
-	private Date UZMTREQMOVSUBM_FECHA_MOD;
+	@Column(name = "UZMTREQMOVSUBM_FECHA_MOD")
+	private Date fecha_mod;
 
-	public Long getUZMTREQMOVSUBM_ID() {
-		return UZMTREQMOVSUBM_ID;
+	public requisitosmovsubm() {
+
 	}
 
-	public void setUZMTREQMOVSUBM_ID(Long uZMTREQMOVSUBM_ID) {
-		UZMTREQMOVSUBM_ID = uZMTREQMOVSUBM_ID;
+	public requisitosmovsubm(Long id, Long id_requisito, Long id_movsubm, String usuario_crea, Date fecha_crea,
+			String usuario_mod, Date fecha_mod) {
+		super();
+		this.id = id;
+		this.id_requisito = id_requisito;
+		this.id_movsubm = id_movsubm;
+		this.usuario_crea = usuario_crea;
+		this.fecha_crea = fecha_crea;
+		this.usuario_mod = usuario_mod;
+		this.fecha_mod = fecha_mod;
 	}
 
-	public Long getUZMTREQUISITO_ID() {
-		return UZMTREQUISITO_ID;
+	public Long getId() {
+		return id;
 	}
 
-	public void setUZMTREQUISITO_ID(Long uZMTREQUISITO_ID) {
-		UZMTREQUISITO_ID = uZMTREQUISITO_ID;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public Long getUZMTMOVSUBM_ID() {
-		return UZMTMOVSUBM_ID;
+	public Long getId_requisito() {
+		return id_requisito;
 	}
 
-	public void setUZMTMOVSUBM_ID(Long uZMTMOVSUBM_ID) {
-		UZMTMOVSUBM_ID = uZMTMOVSUBM_ID;
+	public void setId_requisito(Long id_requisito) {
+		this.id_requisito = id_requisito;
 	}
 
-	public String getUZMTREQMOVSUBM_USUARIO_CREA() {
-		return UZMTREQMOVSUBM_USUARIO_CREA;
+	public Long getId_movsubm() {
+		return id_movsubm;
 	}
 
-	public void setUZMTREQMOVSUBM_USUARIO_CREA(String uZMTREQMOVSUBM_USUARIO_CREA) {
-		UZMTREQMOVSUBM_USUARIO_CREA = uZMTREQMOVSUBM_USUARIO_CREA;
+	public void setId_movsubm(Long id_movsubm) {
+		this.id_movsubm = id_movsubm;
 	}
 
-	public Date getUZMTREQMOVSUBM_FECHA_CREA() {
-		return UZMTREQMOVSUBM_FECHA_CREA;
+	public String getUsuario_crea() {
+		return usuario_crea;
 	}
 
-	public void setUZMTREQMOVSUBM_FECHA_CREA(Date uZMTREQMOVSUBM_FECHA_CREA) {
-		UZMTREQMOVSUBM_FECHA_CREA = uZMTREQMOVSUBM_FECHA_CREA;
+	public void setUsuario_crea(String usuario_crea) {
+		this.usuario_crea = usuario_crea;
 	}
 
-	public String getUZMTREQMOVSUBM_USUARIO_MOD() {
-		return UZMTREQMOVSUBM_USUARIO_MOD;
+	public Date getFecha_crea() {
+		return fecha_crea;
 	}
 
-	public void setUZMTREQMOVSUBM_USUARIO_MOD(String uZMTREQMOVSUBM_USUARIO_MOD) {
-		UZMTREQMOVSUBM_USUARIO_MOD = uZMTREQMOVSUBM_USUARIO_MOD;
+	public void setFecha_crea(Date fecha_crea) {
+		this.fecha_crea = fecha_crea;
 	}
 
-	public Date getUZMTREQMOVSUBM_FECHA_MOD() {
-		return UZMTREQMOVSUBM_FECHA_MOD;
+	public String getUsuario_mod() {
+		return usuario_mod;
 	}
 
-	public void setUZMTREQMOVSUBM_FECHA_MOD(Date uZMTREQMOVSUBM_FECHA_MOD) {
-		UZMTREQMOVSUBM_FECHA_MOD = uZMTREQMOVSUBM_FECHA_MOD;
+	public void setUsuario_mod(String usuario_mod) {
+		this.usuario_mod = usuario_mod;
 	}
-	
+
+	public Date getFecha_mod() {
+		return fecha_mod;
+	}
+
+	public void setFecha_mod(Date fecha_mod) {
+		this.fecha_mod = fecha_mod;
+	}
+
+	@Override
+	public String toString() {
+		return "requisitosmovsubm [id=" + id + ", id_requisito=" + id_requisito + ", id_movsubm=" + id_movsubm
+				+ ", usuario_crea=" + usuario_crea + ", fecha_crea=" + fecha_crea + ", usuario_mod=" + usuario_mod
+				+ ", fecha_mod=" + fecha_mod + "]";
+	}
 	
 }
