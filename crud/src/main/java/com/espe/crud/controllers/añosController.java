@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.espe.crud.model.Años;
 import com.espe.crud.model.Escalafonados;
 import com.espe.crud.model.tipomovilidad;
+import com.espe.crud.vo.PlanMovilidadVo;
+import com.espe.crud.vo.SolicitudMovilidadVo;
 
 
 
@@ -62,6 +64,23 @@ public class añosController {
 	System.out.println(q);
 		return jdbcTemplate.query(q, new BeanPropertyRowMapper<>(tipomovilidad.class));
 	}
+	
+	@GetMapping("/planmovilidad")
+	public List<PlanMovilidadVo> planmovilidad() throws SQLException{
+		String q = "SELECT DISTINCT(UZMTPLANMOV_NOMBRE) AS planmovilidad FROM UTIC.UZMTCONVO,UTIC.UZMTPLANMOV,UTIC.UZMTTIPMOV WHERE UZMTPLANMOV.UZMTIPMOV_ID= UZMTTIPMOV.UZMTIPMOV_ID and UZMTTIPMOV.UZMTCONVO_ID= UZMTCONVO.UZMTCONVO_ID and UZMTCONVO_ESTADO='1' ORDER BY UZMTPLANMOV_NOMBRE";
+	System.out.println(q);
+		return jdbcTemplate.query(q, new BeanPropertyRowMapper<>(PlanMovilidadVo.class));
+	}
+	
+	@GetMapping("/indexadasmovilidad")
+	public List<SolicitudMovilidadVo> indexadassolicitud() throws SQLException{
+		String q = "SELECT DISTINCT(UZMTMOVSUBM_NOM) AS solicitudmovilidad FROM UTIC.UZMTCONVO,UTIC.UZMTMOVSUBM,UTIC.UZMTTIPMOV WHERE UZMTMOVSUBM.UZMTIPMOV_ID= UZMTTIPMOV.UZMTIPMOV_ID and UZMTTIPMOV.UZMTCONVO_ID= UZMTCONVO.UZMTCONVO_ID and UZMTCONVO_ESTADO='1' ORDER BY UZMTMOVSUBM_NOM";
+	System.out.println(q);
+		return jdbcTemplate.query(q, new BeanPropertyRowMapper<>(SolicitudMovilidadVo.class));
+	}
+	
+	
+	
 	
 	
 	
