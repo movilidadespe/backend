@@ -23,7 +23,7 @@ import com.espe.crud.repository.tipoconveRepository;
 
 
 
-@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
+@CrossOrigin(origins = "*")
 @RestController
 
 public class tipoconveController {
@@ -32,7 +32,7 @@ public class tipoconveController {
     @Autowired
     tipoconveRepository repository;
     
-    //**MUÉSTRA TODAS LOS TIPCONVE EXISTENTES EN LA BASE DE DADTOS**
+    //**MUÃ‰STRA TODAS LOS TIPCONVE EXISTENTES EN LA BASE DE DADTOS**
     
     @GetMapping("/tipoconves")
     public List<tipoconve> getAllCongresos() {
@@ -44,7 +44,7 @@ public class tipoconveController {
       return tipoconve;
     }
     
-    //**MUÉSTRA UN TIPCONVEESPECÍFICO
+    //**MUÃ‰STRA UN TIPCONVEESPECÃ�FICO
     
     @GetMapping(value = "tipoconve/{id}")
     public List<tipoconve> findById(@PathVariable int id) {

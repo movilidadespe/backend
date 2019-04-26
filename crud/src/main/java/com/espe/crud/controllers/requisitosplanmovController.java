@@ -23,7 +23,7 @@ import com.espe.crud.repository.requisitosplanmovRepository;
 
 
 
-@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
+@CrossOrigin(origins = "*")
 @RestController
 
 public class requisitosplanmovController {

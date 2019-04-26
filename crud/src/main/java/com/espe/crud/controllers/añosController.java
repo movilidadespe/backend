@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,11 +17,12 @@ import com.espe.crud.model.Años;
 import com.espe.crud.model.Escalafonados;
 import com.espe.crud.model.tipomovilidad;
 import com.espe.crud.vo.PlanMovilidadVo;
+import com.espe.crud.vo.ReqplanmVo;
 import com.espe.crud.vo.SolicitudMovilidadVo;
 
 
-
-@RestController
+@CrossOrigin(origins = "*")
+@RestController 
 public class añosController {
 
     public static final Logger logger= LoggerFactory.getLogger(añosController.class);
@@ -79,7 +81,14 @@ public class añosController {
 		return jdbcTemplate.query(q, new BeanPropertyRowMapper<>(SolicitudMovilidadVo.class));
 	}
 	
-	
+	@GetMapping("/requisito/{id}")
+	public List<ReqplanmVo> requisito1(@PathVariable Long id) throws SQLException{
+		String q = "INSERT WHEN (SELECT TRUNC((( SYSDATE - PEBEMPL_FIRST_HIRE_DATE )/365),0)  AS TOTAL FROM PEBEMPL WHERE PEBEMPL_PIDM = " + id +" AND PEBEMPL_BCAT_CODE = 'DO') >3 THEN\r\n" + 
+				" into utic.uzmtverireq(uzmtverireq_id, uzmtreqplanm_id, PEAEMPL_PIDM)\r\n" + 
+				" select 2,3, "+ id +" from dual";
+	System.out.println(q);
+		return (List<ReqplanmVo>) jdbcTemplate.query(q, new BeanPropertyRowMapper<>(ReqplanmVo.class));
+	}
 	
 	
 	

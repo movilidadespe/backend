@@ -22,7 +22,7 @@ import com.espe.crud.model.solicitudmovilidad;
 import com.espe.crud.repository.solicitudmovilidadRepository;
 
 
-@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
+@CrossOrigin(origins = "*")
 @RestController
 public class solicitudmovilidadController {
 

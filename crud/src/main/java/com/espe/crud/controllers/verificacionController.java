@@ -22,7 +22,7 @@ import com.espe.crud.repository.verificacionRepository;
 
 
 
-@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
+@CrossOrigin(origins = "*")
 @RestController
 
 public class verificacionController {

@@ -3,18 +3,27 @@ package com.espe.crud.model;
 
 import java.util.Date;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
 @Table(name = "UZMTREQPLANM", schema="UTIC")
 public class requisitosplanmov {
-	
+   // private static final long serialVersionUID = 1L;   
 	@Id
+	//@Basic(optional= false)
+	//@NotNull
 	@Column(name = "UZMTREQPLANM_ID")
+	//@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_UZMTREQPLANM")
+	//@SequenceGenerator(name = "SEQ_UZMTREQPLANM", sequenceName = "SEQ_UZMTREQPLANM", allocationSize = 1)
 	private Long id;
 	
 	@Column(name = "UZMTREQPLANM_USUARIO_CREA")
