@@ -1,30 +1,21 @@
 package com.espe.crud.vo;
 
-public class ReqplanmVo {
+public class ReqmovsubmVo {
 
-	private Long uzmtreqplanm_id;
+	private Long uzmtreqmovsubm_id;
 	
 	private Long uzmtverireq_id;
 	
 	private Long PEAEMPL_PIDM;
 	
 	private Long uzmtverireq_estado;
-	
 
-	public Long getUzmtverireq_estado() {
-		return uzmtverireq_estado;
+	public Long getUzmtreqmovsubm_id() {
+		return uzmtreqmovsubm_id;
 	}
 
-	public void setUzmtverireq_estado(Long uzmtverireq_estado) {
-		this.uzmtverireq_estado = uzmtverireq_estado;
-	}
-
-	public Long getUzmtreqplanm_id() {
-		return uzmtreqplanm_id;
-	}
-
-	public void setUzmtreqplanm_id(Long uzmtreqplanm_id) {
-		this.uzmtreqplanm_id = uzmtreqplanm_id;
+	public void setUzmtreqmovsubm_id(Long uzmtreqmovsubm_id) {
+		this.uzmtreqmovsubm_id = uzmtreqmovsubm_id;
 	}
 
 	public Long getUzmtverireq_id() {
@@ -41,6 +32,14 @@ public class ReqplanmVo {
 
 	public void setPEAEMPL_PIDM(Long pEAEMPL_PIDM) {
 		PEAEMPL_PIDM = pEAEMPL_PIDM;
+	}
+
+	public Long getUzmtverireq_estado() {
+		return uzmtverireq_estado;
+	}
+
+	public void setUzmtverireq_estado(Long uzmtverireq_estado) {
+		this.uzmtverireq_estado = uzmtverireq_estado;
 	}
 
 	
