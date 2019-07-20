@@ -3,14 +3,10 @@ package com.espe.crud.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @Entity
@@ -18,109 +14,127 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class solicitudes {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long UZMTIPMOV_ID;
+	@Column(name = "UZMTIPMOV_ID")
+    private Long id;
 	
-	@JsonProperty("UZMTCONVO_ID")
-    @NotBlank
-    private Long UZMTCONVO_ID;
+	@Column(name = "UZMTCONVO_ID")
+    private Long id_convo;
 	
-	@JsonProperty("nombre")
-    @NotBlank	
-    private String UZMTIPMOV_NOMBRE;
+	@Column(name = "UZMTIPMOV_NOMBRE")
+    private String nombre;
 	
-	@JsonProperty("usuario_crea")
-    @NotBlank
-    private String UZMTIPMOV_USUARIO_CREA;
+	@Column(name = "UZMTIPMOV_USUARIO_CREA")
+    private String usuario_crea;
 	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-    private Date UZMTIPMOV_FECHA_CREA;
+	@Column(name = "UZMTIPMOV_FECHA_CREA")
+	private Date fecha_crea;
 	
-	@JsonProperty("usuario_mod")
-    private String UZMTIPMOV_USUARIO_MOD;
+	@Column(name = "UZMTIPMOV_USUARIO_MOD")
+	private String usuario_mod;
 	
 	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-    private Date UZMTIPMOV_FECHA_MOD;
+	@Column(name = "UZMTIPMOV_FECHA_MOD")
+	private Date fecha_mod ;
 
+	
+	
 
 	public solicitudes() {
 		
 	}
+
+	public solicitudes(Long id,Long id_convo,String nombre,String usuario_crea,
+				Date fecha_crea,String usuario_mod,Date fecha_mod) {
+		super();
+		this.id = id;
+		this.id_convo = id_convo;
+		this.nombre = nombre;
+		this.usuario_crea = usuario_crea;
+		this.fecha_crea = fecha_crea;
+		this.usuario_mod = usuario_mod;
+		this.fecha_mod = fecha_mod;
+		
+		
+	}
+	
+	
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public Long getId_convo() {
+		return id_convo;
+	}
+
+
+	public void setId_convo(Long id_convo) {
+		this.id_convo = id_convo;
+	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public String getUsuario_crea() {
+		return usuario_crea;
+	}
+
+
+	public void setUsuario_crea(String usuario_crea) {
+		this.usuario_crea = usuario_crea;
+	}
+
+
+	public Date getFecha_crea() {
+		return fecha_crea;
+	}
+
+
+	public void setFecha_crea(Date fecha_crea) {
+		this.fecha_crea = fecha_crea;
+	}
+
+
+	public String getUsuario_mod() {
+		return usuario_mod;
+	}
+
+
+	public void setUsuario_mod(String usuario_mod) {
+		this.usuario_mod = usuario_mod;
+	}
+
+
+	public Date getFecha_mod() {
+		return fecha_mod;
+	}
+
+
+	public void setFecha_mod(Date fecha_mod) {
+		this.fecha_mod = fecha_mod;
+	}
 	
 
 
-	public Long getUZMTTIPMOV_ID() {
-		return UZMTIPMOV_ID;
+	@Override
+	public String toString() {
+		return "solicitudes[id ="+ id +",id_convo ="+id_convo+",nombre ="+nombre + ",usuario_crea="+ usuario_crea 
+				+ ", fecha_crea=" + fecha_crea + ", usuario_mod=" + usuario_mod + ", fecha_mod=" + fecha_mod + "]";
 	}
-
-
-	public void setUZMTTIPMOV_ID(Long uZMTTIPMOV_ID) {
-		UZMTIPMOV_ID = uZMTTIPMOV_ID;
-	}
-
-
-	public Long getUZMTCONVO_ID() {
-		return UZMTCONVO_ID;
-	}
-
-
-	public void setUZMTCONVO_ID(Long uZMTCONVO_ID) {
-		UZMTCONVO_ID = uZMTCONVO_ID;
-	}
-
-
-	public String getUZMTIPMOV_NOMBRE() {
-		return UZMTIPMOV_NOMBRE;
-	}
-
-
-	public void setUZMTIPMOV_NOMBRE(String uZMTIPMOV_NOMBRE) {
-		UZMTIPMOV_NOMBRE = uZMTIPMOV_NOMBRE;
-	}
-
-
-	public String getUZMTIPMOV_USUARIO_CREA() {
-		return UZMTIPMOV_USUARIO_CREA;
-	}
-
-
-	public void setUZMTIPMOV_USUARIO_CREA(String uZMTIPMOV_USUARIO_CREA) {
-		UZMTIPMOV_USUARIO_CREA = uZMTIPMOV_USUARIO_CREA;
-	}
-
-
-	public Date getUZMTIPMOV_FECHA_CREA() {
-		return UZMTIPMOV_FECHA_CREA;
-	}
-
-
-	public void setUZMTIPMOV_FECHA_CREA(Date uZMTIPMOV_FECHA_CREA) {
-		UZMTIPMOV_FECHA_CREA = uZMTIPMOV_FECHA_CREA;
-	}
-
-
-	public String getUZMTTIPMOV_USUARIO_MOD() {
-		return UZMTIPMOV_USUARIO_MOD;
-	}
-
-
-	public void setUZMTTIPMOV_USUARIO_MOD(String uZMTTIPMOV_USUARIO_MOD) {
-		UZMTIPMOV_USUARIO_MOD = uZMTTIPMOV_USUARIO_MOD;
-	}
-
-
-	public Date getUZMTIPMOV_FECHA_MOD() {
-		return UZMTIPMOV_FECHA_MOD;
-	}
-
-
-	public void setUZMTIPMOV_FECHA_MOD(Date uZMTIPMOV_FECHA_MOD) {
-		UZMTIPMOV_FECHA_MOD = uZMTIPMOV_FECHA_MOD;
-	}
-
-
-
 
 
 	
